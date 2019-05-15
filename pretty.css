@@ -2,7 +2,13 @@
 	Global classes
 					*/
 body {
-	font-family: "Trebuchet MS", Helvetica, sans-serif
+		font-family: "Segoe UI", Helvetica, sans-serif
+}
+
+
+.jumbotron{
+	margin-bottom: 0px;
+	height:100vh;
 }
 
 .mainContent{
