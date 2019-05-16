@@ -1,3 +1,4 @@
+//javascript for availability page
 var app = angular.module('availability', []);
 
 app.controller('availabilityController', function($scope, $document, $element) {
