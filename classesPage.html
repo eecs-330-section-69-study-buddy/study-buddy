@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html class= "blue-grey lighten-10">
+<head>
+</head>
+<body>
+
+	<header>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<link href="pretty.css" rel="stylesheet" type="text/css">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+</header>
+
+<div class="jumbotron rounded text-center blue-grey lighten-5 p-5">
+  <h1 class="display-4 mt-5">ADD CLASSES</h1>
+  <p class="lead font-weight-light">Add your courses to find your peers.</p>
+  <p class="lead">
+
+							<div class="container shadow-sm bg-light rounded p-5">
+							  <div class="panel panel-default">
+							    <div class="panel-body">
+							        <form action="/action_page.php" class="needs-validation" novalidate>
+							      	<div class="input-group control-group after-add-more justify-content-center">
+													<div class="form-group">
+														<label> Term </label>
+														<select class="form-control">
+															<option value="Spring 2019">Spring 2019</option>
+															<option value="Summer 2019">Summer 2019</option>
+															<option value="Summer 2019">Spring 2019</option>
+														</select>
+													</div>
+
+													<div class="form-group">
+														<label> Department </label>
+														<select class="form-control">
+															<option value="CHEM">CHEM</option>
+															<option value="EECS">EECS</option>
+															<option value="GEN_ENG">GEN_ENG</option>
+															<option value="GNDR_ST">GNDR_ST</option>
+															<option value="MATH">MATH</option>
+															<option value="NEUROSCI">NEUROSCI</option>
+															<option value="PSYCH">PSYCH</option>
+															<option value="" selected disabled hidden>Select Department</option>
+														</select>
+													</div>
+
+													<div class="form-group">
+														<label> Course </label>
+														<select class="form-control">
+															<option value="101">101-0</option>
+															<option value="101">210-0</option>
+															<option value="101">212-0</option>
+															<option value="101">321-0</option>
+															<option value="101">330-0</option>
+															<option value="" selected disabled hidden>Select Course</option>
+														</select>
+													</div>
+
+													<div class="form-group">
+														<label> Section </label>
+														<select id="section" class="form-control">
+															<option value="01">01</option>
+															<option value="02">02</option>
+															<option value="" selected disabled hidden>Select Section</option>
+														</select>
+													</div>
+
+							          <div class="input-group-btn">
+							            <button class="btn btn-outline-success d-flex justify-content-center align-content-between add-more mt-1 ml-2" type="button"><i class="material-icons">add</i></button>
+							          </div>
+											</div>
+
+											<div class="control-group text-center">
+											<button class="btn btn-success" type="submit">Submit</button>
+										</div>
+							        </form>
+
+  </p>
+</div>
+
+
+
+
+
+					        <div class="copy d-none">
+					          <div class="control-group input-group justify-content-center" style="margin-top:10px">
+												<div class="form-group">
+													<label> Term </label>
+													<select class="form-control">
+														<option value="Spring 2019">Spring 2019</option>
+														<option value="Summer 2019">Summer 2019</option>
+														<option value="Summer 2019">Spring 2019</option>
+													</select>
+												</div>
+
+												<div class="form-group">
+													<label> Department </label>
+													<select class="form-control">
+														<option value="CHEM">CHEM</option>
+														<option value="EECS">EECS</option>
+														<option value="GEN_ENG">GEN_ENG</option>
+														<option value="GNDR_ST">GNDR_ST</option>
+														<option value="MATH">MATH</option>
+														<option value="NEUROSCI">NEUROSCI</option>
+														<option value="PSYCH">PSYCH</option>
+														<option value="" selected disabled hidden>Select Department</option>
+													</select>
+												</div>
+
+												<div class="form-group">
+													<label> Course </label>
+													<select class="form-control">
+														<option value="101">101-0</option>
+														<option value="101">210-0</option>
+														<option value="101">212-0</option>
+														<option value="101">321-0</option>
+														<option value="101">330-0</option>
+														<option value="" selected disabled hidden>Select Course</option>
+													</select>
+												</div>
+
+												<div class="form-group">
+													<label> Section </label>
+													<select class="form-control">
+														<option value="01">01</option>
+														<option value="02">02</option>
+														<option value="" selected disabled hidden>Select Section</option>
+													</select>
+												</div>
+
+												<div class="input-group-btn">
+					              <button class="remove btn btn-outline-danger d-flex justify-content-center align-content-between ml-2 mt-1" type="button"><i class="material-icons">clear</i></button>
+					            </div>
+										</div>
+								</div>
+
+							</div>
+						</div>
+					</div>
+
+
+
+<script type="text/javascript">
+
+    $(document).ready(function() {
+        $(".add-more").click(function(){
+            var html = $(".copy").html();
+            $(".after-add-more").after(html);
+        });
+
+        $("body").on("click",".remove",function(){
+            $(this).parents(".control-group").remove();
+        });
+    });
+
+
+	(function() {
+  'use strict';
+  window.addEventListener('load', function() {
+    // Get the forms we want to add validation styles to
+    var forms = document.getElementsByClassName('needs-validation');
+    // Loop over them and prevent submission
+    var validation = Array.prototype.filter.call(forms, function(form) {
+      form.addEventListener('submit', function(event) {
+        if (form.checkValidity() === false) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+        form.classList.add('was-validated');
+      }, false);
+    });
+  }, false);
+})();
+
+</script>
+
+
+</body>
+</html>
