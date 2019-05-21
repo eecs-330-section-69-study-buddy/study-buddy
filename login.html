@@ -1,21 +1,85 @@
+
 <!DOCTYPE html>
-<html>
+<html class= "blue-grey lighten-10">
+<head>
+</head>
+<body>
+
 	<header>
-	   <title>Log In</title>
-	   <link rel="stylesheet" type="text/css" href="login.css"/>
-	</header>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<link href="pretty.css" rel="stylesheet" type="text/css">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+</header>
 
-	<body>
-		<div id="page">
-		    <div id="main">
-		    	<p class="title">Study Buddy</p>
-		    	<p class="info-header">Log In</p>
-			    Username: <input class="text-form" type="text"><br>
-			    Password: <input class="text-form" type="text"><br>
-			    <p class="reg">Don't have an account? Register <a href="register3.html">here</a>.</p>
+<div class="jumbotron rounded text-center blue-grey lighten-5 p-5">
+  <h1 class="font-weight-bold mt-5">Study Buddy</h1>
+  <p class="font-weight-light">Sign in to access your account.</p>
+  <p class="lead">
 
-			    <input type="button" id="submit" class="buttons" value="Submit" onclick="window.location.href='main.html'">
-		    </div>
-		</div>
-	</body>
+		<div class="container shadow-sm bg-light rounded p-5">
+			<div class="panel panel-default">
+				<div class="panel-body">
+
+					<form action="main.html" class="needs-validation" novalidate>
+						<label for="username1">Username</label>
+					<div class="form-group">
+			      <input type="password" class="form-control" id="username1" placeholder="Username">
+			    </div>
+					<label for="exampleInputPassword1">Password</label>
+			    <div class="form-group">
+			      <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+			    </div>
+
+					<a href="main.html">
+						<button class="btn" type="submit">Submit</button>
+					</a>
+</form>
+  </p>
+</div>
+
+
+
+											</div>
+								</div>
+
+							</div>
+
+
+
+							<script type="text/javascript">
+
+							    $(document).ready(function() {
+							        $(".add-more").click(function(){
+							            var html = $(".copy").html();
+							            $(".after-add-more").after(html);
+							        });
+
+							        $("body").on("click",".remove",function(){
+							            $(this).parents(".control-group").remove();
+							        });
+							    });
+
+
+								(function() {
+							  'use strict';
+							  window.addEventListener('load', function() {
+							    // Get the forms we want to add validation styles to
+							    var forms = document.getElementsByClassName('needs-validation');
+							    // Loop over them and prevent submission
+							    var validation = Array.prototype.filter.call(forms, function(form) {
+							      form.addEventListener('submit', function(event) {
+							        if (form.checkValidity() === false) {
+							          event.preventDefault();
+							          event.stopPropagation();
+							        }
+							        form.classList.add('was-validated');
+							      }, false);
+							    });
+							  }, false);
+							})();
+
+							</script>
+
+</body>
 </html>
