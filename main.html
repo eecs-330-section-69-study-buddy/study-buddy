@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+	<header>
+		<title>Study Buddy</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+		<link href="main.css" rel="stylesheet" type="text/css">
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+		<meta charset="UTF-8">
+	</header>
+	<body onload="displayPosts('MATH_234')">
+		<div id="page">
+			<div id="tab-bar">
+		    	<div class="tab">
+		    		<p class="tab-p">MATH 234</p>
+		    	</div>
+		    	<div class="tab">
+		    		<p class="tab-p">EA1</p>
+		    	</div>
+		    	<div class="tab">
+		    		<p class="tab-p">EECS 211</p>
+		    	</div>
+		    	<div class="tab">
+		    		<p class="tab-p">CHEM 102</p>
+		    	</div>
+		    </div>
+		    <div id="left-panel">
+		    	<img id="avatar" src="avatar.png" alt="avatar.png">
+			    <p id="uinfo">wildcat1</p>
+			    <input type="button" class="buttons" value="My Profile" onclick="window.location.href='.html'">
+			    <p class="info-header">My Classes</p>
+			    <a href="main.html"><p class="class-list-hl">MATH 234</p></a>
+			    <p class="class-list">EA1</p>
+			    <p class="class-list">EECS 211</p>
+			    <p class="class-list">CHEM 102</p>
+			    <input type="button" class="buttons" value="Edit My Classes" onclick="window.location.href='classesPage.html'">
+			    <input type="button" id="logout" class="buttons" value="Log out" onclick="window.location.href='login.html'">
+		    </div>
+		    <div id="filter">
+		    </div>
+		    <div id="board">
+		    </div>
+		</div>
+		<script>
+			var sb = `{
+				"users": {
+					"wildcat1": {
+						"avail": null,
+						"psl": null
+					},
+					"purple5": {
+						"avail": null,
+						"psl": null
+					}
+				},
+				"boards":{
+					"MATH_234": {
+						"1": {
+							"user":"purple5",
+							"time":"May 10th 10:00PM",
+							"irt": null,
+							"level": 0,
+							"text":"Hi, I need a partner"
+						},
+						"2":{
+							"user":"willie8",
+							"time":"May 11th 2:01PM",
+							"irt": 1,
+							"level": 1,
+							"text":"Hi, me too"
+						},
+						"3":{
+							"user":"wildcat2",
+							"time":"May 12th 1:06PM",
+							"irt": 1,
+							"level": 2,
+							"text":"Hey, me three"
+						},
+						"4":{
+							"user":"morty",
+							"time":"May 10th 1:06PM",
+							"irt": 0,
+							"level": 0,
+							"text":"Your tuition is due"
+						}
+					}
+				}
+			}`
+
+			var db = JSON.parse(sb);
+
+			function displayPosts(brd) {
+				var posts = db.boards[brd];
+				var h_board = document.getElementById("board")
+
+				for(post in posts) {
+					var post_div = document.createElement('div');
+					post_div.setAttribute("class","post");
+					var indent = posts[post].level * 20;
+					var css_indent = indent.toString() + "px"
+					console.log(css_indent)
+					post_div.style.marginLeft = css_indent;
+
+					var contents = `<p class='post-un'>${posts[post].user}</p>
+		    						<p class='post-text'>${posts[post].text}</p>
+		    						<div class='post-nav'>
+		    							<p class='post-date'>${posts[post].time}</p>
+		    						</div>`;
+					post_div.innerHTML = contents;
+					h_board.appendChild(post_div);
+				}
+			}
+		</script>
+	</body>
+</html>
