@@ -8,7 +8,7 @@
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
 		<meta charset="UTF-8">
 	</header>
-	<body onload="displayPosts('MATH_234')">
+	<body onload="displayPosts(db.boards['MATH_234'])">
 		<div id="page">
 			<div id="tab-bar">
 		    	<div class="tab">
@@ -27,7 +27,7 @@
 		    <div id="left-panel">
 		    	<img id="avatar" src="avatar.png" alt="avatar.png">
 			    <p id="uinfo">wildcat1</p>
-			    <input type="button" class="buttons" value="My Profile" onclick="window.location.href='.html'">
+			    <input type="button" class="buttons" value="My Profile" onclick="window.location.href='user_profile.html'">
 			    <p class="info-header">My Classes</p>
 			    <a href="main.html"><p class="class-list-hl">MATH 234</p></a>
 			    <p class="class-list">EA1</p>
@@ -43,6 +43,7 @@
 		</div>
 		<script>
 			var sb = `{
+				"cur_user": "wildcat1",
 				"users": {
 					"wildcat1": {
 						"avail": null,
@@ -51,37 +52,72 @@
 					"purple5": {
 						"avail": null,
 						"psl": null
+					},
+					"willie8": {
+						"avail": null,
+						"psl": null
+					},
+					"evan1": {
+						"avail": null,
+						"psl": null
+					},
+					"therock": {
+						"avail": null,
+						"psl": null
+					},
+					"morty": {
+						"avail": null,
+						"psl": null
 					}
 				},
-				"boards":{
+				"boards": {
 					"MATH_234": {
 						"1": {
 							"user":"purple5",
 							"time":"May 10th 10:00PM",
 							"irt": null,
 							"level": 0,
-							"text":"Hi, I need a partner"
-						},
-						"2":{
-							"user":"willie8",
-							"time":"May 11th 2:01PM",
-							"irt": 1,
-							"level": 1,
-							"text":"Hi, me too"
-						},
-						"3":{
-							"user":"wildcat2",
-							"time":"May 12th 1:06PM",
-							"irt": 1,
-							"level": 2,
-							"text":"Hey, me three"
+							"newPost": false,
+							"text":"Hi, I need a partner",
+							"replies": {
+								"2":{
+									"user":"willie8",
+									"time":"May 11th 2:01PM",
+									"irt": "1",
+									"level": 1,
+									"newPost": false,
+									"text":"Hi, me too",
+									"replies": {
+										"3":{
+											"user":"evan1",
+											"time":"May 12th 1:06PM",
+											"irt": "2",
+											"level": 2,
+											"newPost": false,
+											"text":"Hey, me three",
+											"replies": {}
+										}
+									}
+								},
+								"5": {
+									"user":"therock",
+									"time":"May 15th 10:30AM",
+									"irt": "1",
+									"level": 1,
+									"newPost": false,
+									"text":"Do you want to be partners?",
+									"replies": {}
+								}
+							}
 						},
 						"4":{
 							"user":"morty",
 							"time":"May 10th 1:06PM",
 							"irt": 0,
 							"level": 0,
-							"text":"Your tuition is due"
+							"newPost": false,
+							"text":"Your tuition is due",
+							"replies": {}
 						}
 					}
 				}
@@ -89,27 +125,150 @@
 
 			var db = JSON.parse(sb);
 
-			function displayPosts(brd) {
-				var posts = db.boards[brd];
-				var h_board = document.getElementById("board")
+			function displayPosts(posts) {
 
-				for(post in posts) {
+				console.log("DP");
+				var old_posts = document.getElementById("board");
+				var new_posts = document.createElement('div');
+				new_posts.id = 'board';
+
+				console.log(new_posts)
+
+				var post_page = document.getElementById('page')
+				post_page.replaceChild(new_posts,old_posts);
+
+				dPhelper(posts, new_posts);
+			}
+
+			function dPhelper(post_list, new_board) {
+				console.log("dph");
+				console.log(post_list);
+
+				var key_list = Object.keys(post_list);
+				for(var post = 0; post < key_list.length; post++) {
+					key = key_list[post];
+					console.log(key);
 					var post_div = document.createElement('div');
 					post_div.setAttribute("class","post");
-					var indent = posts[post].level * 20;
-					var css_indent = indent.toString() + "px"
-					console.log(css_indent)
+					var indent = post_list[key].level * 20;
+					var css_indent = indent.toString() + "px";
 					post_div.style.marginLeft = css_indent;
 
-					var contents = `<p class='post-un'>${posts[post].user}</p>
-		    						<p class='post-text'>${posts[post].text}</p>
-		    						<div class='post-nav'>
-		    							<p class='post-date'>${posts[post].time}</p>
-		    						</div>`;
-					post_div.innerHTML = contents;
-					h_board.appendChild(post_div);
+					var date = new Date();
+					var formatted_date = date.toISOString();
+
+					/*
+					if(post_list[key].newPost) {
+						console.log("Rendering new post " + key);
+						var contents = `<p class='post-un'>${db.cur_user}</p>
+										<form action="">
+											<input type="text">
+										</form>
+		    							<div class='post-nav'>
+		    								<p class='post-date'>${formatted_date}</p>
+		    								<button type="button" class='post-submit'
+		    									onclick='submitPost("MATH_234",key)'>Submit</button>
+		    							</div>`;
+
+		    			post_div.innerHTML = contents;
+						new_board.appendChild(post_div);
+					} else {
+					*/
+						console.log("Rendering old post " + key);
+						console.log(post_list);
+						var contents = `<p class='post-un'>${post_list[key].user}</p>
+		    							<p class='post-text'>${post_list[key].text}</p>
+		    							<div class='post-nav'>
+		    								<p class='post-date'>${post_list[key].time}</p>
+		    							</div>`;
+		    			/*
+						var contents = `<p class='post-un'>${post_list[key].user}</p>
+		    							<p class='post-text'>${post_list[key].text}</p>
+		    							<div class='post-nav'>
+		    								<p class='post-date'>${post_list[key].time}</p>
+		    								<button type="button" class='post-reply'
+		    									onclick='createPost("MATH_234",key)'>Reply</button>
+		    							</div>`;
+		    			*/
+		    			//console.log(contents)
+						post_div.innerHTML = contents;
+						new_board.appendChild(post_div);
+
+						if(Object.keys(post_list[key].replies).length != 0) {
+							console.log("Recursing into replies of " + key);
+							dPhelper(post_list[key].replies, new_board);
+						}
+						console.log("Finished with old post " + key);
+					//}
 				}
+
 			}
+
+			function Post(user_inp, time_inp, irt_inp, level_inp, newPost_inp, text_inp, replies_inp) {
+				this.user = user_inp;
+				this.time = time_inp;
+				this.irt = irt_inp;
+				this.level = level_inp;
+				this.newPost = newPost_inp;
+				this.text = text_inp;
+				this.replies = replies_inp;
+			}
+
+			function createPost(brd, post_num) {
+				var posts = db.boards[brd];
+
+				console.log("Entered createPost");
+
+				post = modifyPost(posts, post_num);
+
+				console.log("Finished modifyPost");
+
+				console.log(posts);
+				db.boards[brd] = posts;
+
+				displayPosts(posts);
+			}
+
+			function modifyPost(post_list, post_num) {
+				console.log("Begin modifyPost");
+				console.log(post_list);
+				var key_list = Object.keys(post_list);
+				for(var post = 0; post < key_list.length; post++) {
+					key = key_list[post];
+					console.log("Start key " + key);
+					if(key == post_num) {
+						console.log("Found post");
+						console.log(post_list);
+
+						var d = new Date();
+
+						var post_id = d.toISOString() + "_" + db.cur_user.toString();
+						var post_time = d.toISOString();
+						var post_level = (parseInt(post_list[key].level) + 1).toString();
+
+
+						post_list[key].replies[post_id] = new Post(db.cur_user, post_time, key, post_level, true, null, {});
+
+						console.log("Finished adding new post")
+						console.log(post_list);
+						return post_list;
+					}
+					//console.log(post_list[key].replies);
+					if(post_list[key] != undefined) {
+						if(Object.keys(post_list[key].replies).length != 0) {
+							console.log("Post " + key + " replies")
+							post_list[key].replies = modifyPost(post_list[key].replies, post_num);
+						}
+					}
+					console.log("Finish key " + key);
+				}
+				return post_list;
+			}
+
+			function submitPost(brd, post_num) {
+
+			}
+
 		</script>
 	</body>
 </html>
