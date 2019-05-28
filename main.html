@@ -10,6 +10,7 @@
 	</header>
 	<body onload="displayPosts(db.boards['MATH_234'])">
 		<div id="page">
+			<!--
 			<div id="tab-bar">
 		    	<div class="tab">
 		    		<p class="tab-p">MATH 234</p>
@@ -23,18 +24,20 @@
 		    	<div class="tab">
 		    		<p class="tab-p">CHEM 102</p>
 		    	</div>
-		    </div>
+		    </div>-->
 		    <div id="left-panel">
 		    	<img id="avatar" src="avatar.png" alt="avatar.png">
 			    <p id="uinfo">wildcat1</p>
-			    <input type="button" class="buttons" value="My Profile" onclick="window.location.href='user_profile.html'">
 			    <p class="info-header">My Classes</p>
 			    <a href="main.html"><p class="class-list-hl">MATH 234</p></a>
 			    <p class="class-list">EA1</p>
 			    <p class="class-list">EECS 211</p>
 			    <p class="class-list">CHEM 102</p>
-			    <input type="button" class="buttons" value="Edit My Classes" onclick="window.location.href='classesPage.html'">
-			    <input type="button" id="logout" class="buttons" value="Log out" onclick="window.location.href='login.html'">
+			    <div class="lp-buttons">
+				    <input type="button" class="buttons" value="My Profile" onclick="window.location.href='user_profile.html'">
+				    <input type="button" class="buttons" value="Edit My Classes" onclick="window.location.href='classesPage.html'">
+				    <input type="button" id="logout" class="buttons" value="Log out" onclick="window.location.href='login.html'">
+				</div>
 		    </div>
 		    <div id="filter">
 		    </div>
@@ -127,12 +130,12 @@
 
 			function displayPosts(posts) {
 
-				console.log("DP");
+				//console.log("DP");
 				var old_posts = document.getElementById("board");
 				var new_posts = document.createElement('div');
 				new_posts.id = 'board';
 
-				console.log(new_posts)
+				//console.log(new_posts)
 
 				var post_page = document.getElementById('page')
 				post_page.replaceChild(new_posts,old_posts);
@@ -141,13 +144,13 @@
 			}
 
 			function dPhelper(post_list, new_board) {
-				console.log("dph");
-				console.log(post_list);
+				//console.log("dph");
+				//console.log(post_list);
 
 				var key_list = Object.keys(post_list);
 				for(var post = 0; post < key_list.length; post++) {
 					key = key_list[post];
-					console.log(key);
+					//console.log(key);
 					var post_div = document.createElement('div');
 					post_div.setAttribute("class","post");
 					var indent = post_list[key].level * 20;
@@ -157,11 +160,10 @@
 					var date = new Date();
 					var formatted_date = date.toISOString();
 
-					/*
 					if(post_list[key].newPost) {
-						console.log("Rendering new post " + key);
+						//console.log("Rendering new post " + key);
 						var contents = `<p class='post-un'>${db.cur_user}</p>
-										<form action="">
+										<form action="" target="_self">
 											<input type="text">
 										</form>
 		    							<div class='post-nav'>
@@ -173,33 +175,26 @@
 		    			post_div.innerHTML = contents;
 						new_board.appendChild(post_div);
 					} else {
-					*/
-						console.log("Rendering old post " + key);
-						console.log(post_list);
-						var contents = `<p class='post-un'>${post_list[key].user}</p>
-		    							<p class='post-text'>${post_list[key].text}</p>
-		    							<div class='post-nav'>
-		    								<p class='post-date'>${post_list[key].time}</p>
-		    							</div>`;
-		    			/*
+						//console.log("Rendering old post " + key);
+						//console.log(post_list);
 						var contents = `<p class='post-un'>${post_list[key].user}</p>
 		    							<p class='post-text'>${post_list[key].text}</p>
 		    							<div class='post-nav'>
 		    								<p class='post-date'>${post_list[key].time}</p>
 		    								<button type="button" class='post-reply'
-		    									onclick='createPost("MATH_234",key)'>Reply</button>
+		    									onclick='createPost("MATH_234",${key})'>Reply</button>
 		    							</div>`;
-		    			*/
+
 		    			//console.log(contents)
 						post_div.innerHTML = contents;
 						new_board.appendChild(post_div);
 
 						if(Object.keys(post_list[key].replies).length != 0) {
-							console.log("Recursing into replies of " + key);
+							//console.log("Recursing into replies of " + key);
 							dPhelper(post_list[key].replies, new_board);
 						}
-						console.log("Finished with old post " + key);
-					//}
+						//console.log("Finished with old post " + key);
+					}
 				}
 
 			}
@@ -217,28 +212,27 @@
 			function createPost(brd, post_num) {
 				var posts = db.boards[brd];
 
-				console.log("Entered createPost");
+				//console.log("Entered createPost");
 
 				post = modifyPost(posts, post_num);
 
-				console.log("Finished modifyPost");
+				//console.log("Finished modifyPost");
 
-				console.log(posts);
 				db.boards[brd] = posts;
 
 				displayPosts(posts);
 			}
 
 			function modifyPost(post_list, post_num) {
-				console.log("Begin modifyPost");
-				console.log(post_list);
+				//console.log("Begin modifyPost");
+				//console.log(post_list);
 				var key_list = Object.keys(post_list);
 				for(var post = 0; post < key_list.length; post++) {
 					key = key_list[post];
-					console.log("Start key " + key);
+					//console.log("Start key " + key);
 					if(key == post_num) {
-						console.log("Found post");
-						console.log(post_list);
+						//console.log("Found post");
+						//console.log(post_list);
 
 						var d = new Date();
 
@@ -249,23 +243,25 @@
 
 						post_list[key].replies[post_id] = new Post(db.cur_user, post_time, key, post_level, true, null, {});
 
-						console.log("Finished adding new post")
-						console.log(post_list);
+						//console.log("Finished adding new post")
+						//console.log(post_list);
 						return post_list;
 					}
 					//console.log(post_list[key].replies);
 					if(post_list[key] != undefined) {
 						if(Object.keys(post_list[key].replies).length != 0) {
-							console.log("Post " + key + " replies")
+							//console.log("Post " + key + " replies")
 							post_list[key].replies = modifyPost(post_list[key].replies, post_num);
 						}
 					}
-					console.log("Finish key " + key);
+					//console.log("Finish key " + key);
 				}
 				return post_list;
 			}
 
 			function submitPost(brd, post_num) {
+
+
 
 			}
 
