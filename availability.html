@@ -1,47 +1,96 @@
 <!DOCTYPE html>
-<html class= "blue-grey lighten-10" ng-app="availability">
-	<body>
+<html class= "blue-grey lighten-5">
+<head>
+</head>
+<body>
+
 	<header>
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-		<link href="avail.css" rel="stylesheet" type="text/css">
-		<link href="pretty.css" rel="stylesheet" type="text/css">
-		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
-		<script src="avail.js"></script>
-	</header>
-	<div class="jumbotron rounded text-center blue-grey lighten-5 p-5">
-		<a href="user_profile.html"><div class="back-button">
-			<i class="material-icons">arrow_back</i></div></a>
-  		<h1 class="font-weight-bold mt-5">AVAILABILITY</h1>
-  		<p class="font-weight-light">Highlight the hours you are free to study!</p>
-		<p class="lead">
-			<div class="container shadow-sm bg-light rounded p-5">
-				<div class="panel panel-default">
-					<div class="panel-body">
-						<p>Click and drag to highlight. Do the same to highlighted to undo it!</br>
-						This will be used to help find students who are free when you are!</p>
-						<div class="container" ng-controller="availabilityController">
-							<div class="times">
-								<div class="r" ng-repeat="time in times">{{ time }}</div>
-							</div>
-							<div class="days">
-								<div class="r">
-									<div class="c" ng-repeat="day in week">{{ day }}</div>
-								</div>
-								<table class="schedule">
-									<tr class="r" ng-repeat="hour in schedule[0] track by $index">
-										<td class="c" ng-repeat="day in schedule track by $index" 
-										ng-class="{'selected': schedule[$index][$parent.$index] === 1}"> </td>
-									</tr>
-								</table>
-								<button onclick="location.href = 'user_profile.html';" id="save" class="buttons" > Save </button>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<link href="pretty.css" rel="stylesheet" type="text/css">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+</header>
+
+<div class="jumbotron rounded text-center blue-grey lighten-5 p-5">
+  <h1 class="font-weight-bold mt-5">Register</h1>
+  <p class="font-weight-light">Please fill in this form to create an account.</p>
+  <p class="lead">
+
+							<div class="container shadow-sm bg-light rounded p-5">
+							  <div class="panel panel-default">
+							    <div class="panel-body">
+
+                    <form action="classesPage.html" class="needs-validation" novalidate>
+                      <label>Email address</label>
+    <div class="form-group">
+      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+    </div>
+    <label for="username1">Username</label>
+    <div class="form-group">
+      <input type="password" class="form-control" id="username1" placeholder="Enter Username">
+    </div>
+    <label for="exampleInputPassword1">Password</label>
+    <div class="form-group">
+      <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Enter Password">
+    </div>
+    <label for="exampleInputPassword2">Repeat Password</label>
+    <div class="form-group">
+      <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Re-Enter Password">
+    </div>
+
+
+
+                        <a href="classesPage.html">
+              						<button class="btn" type="submit">Register</button>
+              					</a>
+
+                      <div class="container signin">
+                        <p>Already have an account? <a href="login.html">Log in</a>.</p>
+                      </div>
+                    </form>
+
+  </p>
+</div>
+
 							</div>
 						</div>
 					</div>
-				</div>
-			</div>
 
-		</p>
-	</body>
+
+
+          <script type="text/javascript">
+
+              $(document).ready(function() {
+                  $(".add-more").click(function(){
+                      var html = $(".copy").html();
+                      $(".after-add-more").after(html);
+                  });
+
+                  $("body").on("click",".remove",function(){
+                      $(this).parents(".control-group").remove();
+                  });
+              });
+
+
+          	(function() {
+            'use strict';
+            window.addEventListener('load', function() {
+              // Get the forms we want to add validation styles to
+              var forms = document.getElementsByClassName('needs-validation');
+              // Loop over them and prevent submission
+              var validation = Array.prototype.filter.call(forms, function(form) {
+                form.addEventListener('submit', function(event) {
+                  if (form.checkValidity() === false) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                  }
+                  form.classList.add('was-validated');
+                }, false);
+              });
+            }, false);
+          })();
+
+          </script>
+
+</body>
 </html>
