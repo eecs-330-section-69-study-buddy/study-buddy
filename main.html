@@ -46,6 +46,7 @@
 		</div>
 		<script>
 			var sb = `{
+				"cur_board": "MATH_234",
 				"cur_user": "wildcat1",
 				"users": {
 					"wildcat1": {
@@ -75,25 +76,25 @@
 				},
 				"boards": {
 					"MATH_234": {
-						"1": {
+						"post_2019_5_10_22_0_0_purple5": {
 							"user":"purple5",
-							"time":"May 10th 10:00PM",
+							"time":"May 10 10:00 PM",
 							"irt": null,
 							"level": 0,
 							"newPost": false,
 							"text":"Hi, I need a partner",
 							"replies": {
-								"2":{
+								"post_2019_5_11_14_1_0_willie8":{
 									"user":"willie8",
-									"time":"May 11th 2:01PM",
+									"time":"May 11 2:01 PM",
 									"irt": "1",
 									"level": 1,
 									"newPost": false,
 									"text":"Hi, me too",
 									"replies": {
-										"3":{
+										"post_2019_5_12_13_6_0_evan1":{
 											"user":"evan1",
-											"time":"May 12th 1:06PM",
+											"time":"May 12 1:06 PM",
 											"irt": "2",
 											"level": 2,
 											"newPost": false,
@@ -102,9 +103,9 @@
 										}
 									}
 								},
-								"5": {
+								"post_2019_5_15_10_30_0_therock": {
 									"user":"therock",
-									"time":"May 15th 10:30AM",
+									"time":"May 15 10:30 AM",
 									"irt": "1",
 									"level": 1,
 									"newPost": false,
@@ -113,9 +114,9 @@
 								}
 							}
 						},
-						"4":{
+						"post_2019_5_10_13_6_0_morty":{
 							"user":"morty",
-							"time":"May 10th 1:06PM",
+							"time":"May 10 1:06 PM",
 							"irt": 0,
 							"level": 0,
 							"newPost": false,
@@ -141,6 +142,8 @@
 				post_page.replaceChild(new_posts,old_posts);
 
 				dPhelper(posts, new_posts);
+
+				//console.log("Finished DP")
 			}
 
 			function dPhelper(post_list, new_board) {
@@ -148,7 +151,9 @@
 				//console.log(post_list);
 
 				var key_list = Object.keys(post_list);
+				//console.log(key_list);
 				for(var post = 0; post < key_list.length; post++) {
+					//console.log(post);
 					key = key_list[post];
 					//console.log(key);
 					var post_div = document.createElement('div');
@@ -157,23 +162,22 @@
 					var css_indent = indent.toString() + "px";
 					post_div.style.marginLeft = css_indent;
 
-					var date = new Date();
-					var formatted_date = date.toISOString();
-
 					if(post_list[key].newPost) {
 						//console.log("Rendering new post " + key);
 						var contents = `<p class='post-un'>${db.cur_user}</p>
-										<form action="" target="_self">
-											<input type="text">
+										<form id='reply-form'>
+											<input id='reply-text' type="text">
+											<div class='post-nav'>
+		    								<p class='post-date'>${post_list[key].time}</p>
+		  									<button type="button" id='post-submit' onclick='submitPost(key)'>Submit</button>
+		    								</div>
 										</form>
-		    							<div class='post-nav'>
-		    								<p class='post-date'>${formatted_date}</p>
-		    								<button type="button" class='post-submit'
-		    									onclick='submitPost("MATH_234",key)'>Submit</button>
-		    							</div>`;
+		    							`;
 
 		    			post_div.innerHTML = contents;
 						new_board.appendChild(post_div);
+
+						//document.getElementById('post-submit').addEventListener('onclick',);
 					} else {
 						//console.log("Rendering old post " + key);
 						//console.log(post_list);
@@ -182,7 +186,7 @@
 		    							<div class='post-nav'>
 		    								<p class='post-date'>${post_list[key].time}</p>
 		    								<button type="button" class='post-reply'
-		    									onclick='createPost("MATH_234",${key})'>Reply</button>
+		    									onclick='createPost(key)'>Reply</button>
 		    							</div>`;
 
 		    			//console.log(contents)
@@ -209,18 +213,23 @@
 				this.replies = replies_inp;
 			}
 
-			function createPost(brd, post_num) {
-				var posts = db.boards[brd];
+			function createPost(post_num) {
 
 				//console.log("Entered createPost");
 
-				post = modifyPost(posts, post_num);
+				var posts = db.boards[db.cur_board];
 
-				//console.log("Finished modifyPost");
+				posts = modifyPost(posts, post_num);
 
-				db.boards[brd] = posts;
+				//console.log("Finished final modifyPost");
+
+				//console.log(posts);
+
+				db.boards[db.cur_board] = posts;
 
 				displayPosts(posts);
+
+				//console.log("Finished createPost");
 			}
 
 			function modifyPost(post_list, post_num) {
@@ -231,15 +240,17 @@
 					key = key_list[post];
 					//console.log("Start key " + key);
 					if(key == post_num) {
-						//console.log("Found post");
+						//console.log("Found post " + key);
 						//console.log(post_list);
 
 						var d = new Date();
 
-						var post_id = d.toISOString() + "_" + db.cur_user.toString();
-						var post_time = d.toISOString();
+						var post_id = "post_" + d.getUTCFullYear() + "_" + d.getUTCMonth() + "_" + d.getUTCDate() + "_" + d.getUTCHours() + "_" + d.getUTCMinutes() + "_" + d.getUTCSeconds() + "_" + (db.cur_user).toString();
+						var dateOptions = {month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric'};
+						var post_time = d.toLocaleDateString('en-US', dateOptions);
 						var post_level = (parseInt(post_list[key].level) + 1).toString();
 
+						//console.log(post_id);
 
 						post_list[key].replies[post_id] = new Post(db.cur_user, post_time, key, post_level, true, null, {});
 
@@ -259,10 +270,55 @@
 				return post_list;
 			}
 
-			function submitPost(brd, post_num) {
+			function submitPost(post_num) {
 
+				//console.log("Entered submitPost");
 
+				var posts = db.boards[db.cur_board];
 
+				post = submitPostHelper(posts, post_num);
+
+				//console.log("Finished final submitPostHelper");
+
+				db.boards[db.cur_board] = posts;
+
+				displayPosts(posts);
+			}
+
+			function submitPostHelper(post_list, post_num) {
+
+				var key_list = Object.keys(post_list);
+				for(var post = 0; post < key_list.length; post++) {
+					key = key_list[post];
+					//console.log("Start key " + key);
+					if(key == post_num) {
+						//console.log("Found post");
+						//console.log(post_list);
+
+						var reply_text = document.getElementById('reply-text').value;
+
+						var d = new Date();
+
+						var dateOptions = {month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric'};
+						var post_time = d.toLocaleDateString('en-US', dateOptions);
+
+						post_list[key].time = post_time;
+						post_list[key].newPost = false;
+						post_list[key].text = reply_text;
+						//console.log("Finished adding new post")
+						//console.log(post_list);
+						return post_list;
+					}
+					//console.log(post_list[key].replies);
+					if(post_list[key] != undefined) {
+						if(Object.keys(post_list[key].replies).length != 0) {
+							//console.log("Post " + key + " replies")
+							post_list[key].replies = submitPostHelper(post_list[key].replies, post_num);
+						}
+					}
+					//console.log("Finish key " + key);
+				}
+				return post_list;
 			}
 
 		</script>
