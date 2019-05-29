@@ -26,6 +26,11 @@ a {
 	
 }
 
+#paragraph{
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
+
 #avatar {
 	height: 150px;
 	width: 150px;
@@ -37,10 +42,13 @@ a {
 
 }
 
+
+
 .info-header {
 	font-size: 1.1em;
 	margin-top: 15px;
 	color: #111;
+	font-weight: bold;
 }
 
 .info-header-sub {
@@ -59,13 +67,13 @@ a {
 }
 
 .links {
-	width: 45%;
+	text-align: center;
 	padding: 1px;
 	padding-top: 4px;
 	padding-left: 4px;
 	color: white;
-	background-color: #444;
-	border-color: #444;
+	background-color: #9370DB;
+	border-color: #9370DB;
 	border-radius: 3px;
 }
 
@@ -75,8 +83,8 @@ a {
 	text-align: center;
 	font-size: 0.9em;
 	color: white;
-	background-color: #444;
-	border-color: #444;
+	background-color: #9370DB;
+	border-color: #9370DB;
 	border-radius: 3px;
 }
 
