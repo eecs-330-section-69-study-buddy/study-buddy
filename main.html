@@ -86,6 +86,15 @@
 							"newPost": false,
 							"text":"Hi, I need a partner",
 							"replies": {
+								"post_2019_5_15_10_30_0_therock": {
+									"user":"therock",
+									"time":"May 15 10:30 AM",
+									"irt": "1",
+									"level": 1,
+									"newPost": false,
+									"text":"Do you want to be partners?",
+									"replies": {}
+								},
 								"post_2019_5_11_14_1_0_willie8":{
 									"user":"willie8",
 									"time":"May 11 2:01 PM",
@@ -104,15 +113,6 @@
 											"replies": {}
 										}
 									}
-								},
-								"post_2019_5_15_10_30_0_therock": {
-									"user":"therock",
-									"time":"May 15 10:30 AM",
-									"irt": "1",
-									"level": 1,
-									"newPost": false,
-									"text":"Do you want to be partners?",
-									"replies": {}
 								}
 							}
 						},
@@ -154,11 +154,13 @@
 				console.log("Entered DP-H");
 				//console.log(post_list);
 
+				post_list = sortPostList(post_list);
+
 				var key_list = Object.keys(post_list);
 				//console.log(key_list);
 				for(var post = 0; post < key_list.length; post++) {
 					//console.log(post);
-					key = key_list[post];
+					var key = key_list[post];
 					//console.log(key);
 					var post_div = document.createElement('div');
 					post_div.setAttribute("class","post");
@@ -173,7 +175,7 @@
 											<input id='reply-text' type="text">
 											<div class='post-nav'>
 		    								<p class='post-date'>${post_list[key].time}</p>
-		  									<button type="button" id='post-submit' onclick='submitPost(key)'>Submit</button>
+		  									<button type="button" id='post-submit' onclick='submitPost("${key}")'>Submit</button>
 		    								</div>
 										</form>
 		    							`;
@@ -190,10 +192,10 @@
 		    							<div class='post-nav'>
 		    								<p class='post-date'>${post_list[key].time}</p>
 		    								<button type='button' class='post-reply'
-		    									onclick='createPost(${key})'>Reply</button>
+		    									onclick='createPost("${key}")'>Reply</button>
 		    							</div>`;
 
-		    			//console.log(contents)
+		    			console.log(contents)
 						post_div.innerHTML = contents;
 						new_board.appendChild(post_div);
 
@@ -244,7 +246,7 @@
 				var key_list = Object.keys(post_list);
 				console.log("Beginning iteration through all keys");
 				for(var post = 0; post < key_list.length; post++) {
-					key = key_list[post];
+					var key = key_list[post];
 					console.log("MP: Start " + key);
 					if(key == post_num) {
 						//console.log("Found post " + key);
