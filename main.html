@@ -8,7 +8,7 @@
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
 		<meta charset="UTF-8">
 	</header>
-	<body onload="displayPosts(db.boards['MATH_234'])">
+	<body onload="displayPosts(db.boards[db.cur_board])">
 		<div id="page">
 			<!--
 			<div id="tab-bar">
@@ -145,6 +145,8 @@
 
 				dPhelper(posts, new_posts);
 
+				//console.log(new_posts);
+
 				console.log("Finished DP")
 			}
 
@@ -187,7 +189,7 @@
 		    							<p class='post-text'>${post_list[key].text}</p>
 		    							<div class='post-nav'>
 		    								<p class='post-date'>${post_list[key].time}</p>
-		    								<button type="button" class='post-reply'
+		    								<button type='button' class='post-reply'
 		    									onclick='createPost(${key})'>Reply</button>
 		    							</div>`;
 
