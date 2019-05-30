@@ -97,6 +97,10 @@ p {
 	font-size: 14px;
 }
 
+.reply-text {
+	margin-left: 4px;
+}
+
 .post-nav {
 	background-color: #DDD;
 }

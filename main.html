@@ -131,23 +131,23 @@
 
 			function displayPosts(posts) {
 
-				//console.log("DP");
+				console.log("Entered DP");
 				var old_posts = document.getElementById("board");
 				var new_posts = document.createElement('div');
 				new_posts.id = 'board';
 
-				//console.log(new_posts)
+				//console.log(new_posts);
 
 				var post_page = document.getElementById('page')
 				post_page.replaceChild(new_posts,old_posts);
 
 				dPhelper(posts, new_posts);
 
-				//console.log("Finished DP")
+				console.log("Finished DP")
 			}
 
 			function dPhelper(post_list, new_board) {
-				//console.log("dph");
+				console.log("Entered DP-H");
 				//console.log(post_list);
 
 				var key_list = Object.keys(post_list);
@@ -163,7 +163,7 @@
 					post_div.style.marginLeft = css_indent;
 
 					if(post_list[key].newPost) {
-						//console.log("Rendering new post " + key);
+						console.log("DPH: Rendering new " + key);
 						var contents = `<p class='post-un'>${db.cur_user}</p>
 										<form id='reply-form'>
 											<input id='reply-text' type="text">
@@ -179,14 +179,14 @@
 
 						//document.getElementById('post-submit').addEventListener('onclick',);
 					} else {
-						//console.log("Rendering old post " + key);
+						console.log("DPH: Rendering old " + key);
 						//console.log(post_list);
 						var contents = `<p class='post-un'>${post_list[key].user}</p>
 		    							<p class='post-text'>${post_list[key].text}</p>
 		    							<div class='post-nav'>
 		    								<p class='post-date'>${post_list[key].time}</p>
 		    								<button type="button" class='post-reply'
-		    									onclick='createPost(key)'>Reply</button>
+		    									onclick='createPost(${key})'>Reply</button>
 		    							</div>`;
 
 		    			//console.log(contents)
@@ -194,10 +194,10 @@
 						new_board.appendChild(post_div);
 
 						if(Object.keys(post_list[key].replies).length != 0) {
-							//console.log("Recursing into replies of " + key);
+							console.log("DPH: Recursing into replies of " + key);
 							dPhelper(post_list[key].replies, new_board);
 						}
-						//console.log("Finished with old post " + key);
+						console.log("DPH: Finished with " + key);
 					}
 				}
 
@@ -215,13 +215,13 @@
 
 			function createPost(post_num) {
 
-				//console.log("Entered createPost");
+				console.log("Entered createPost " + post_num);
 
 				var posts = db.boards[db.cur_board];
 
 				posts = modifyPost(posts, post_num);
 
-				//console.log("Finished final modifyPost");
+				console.log("Finished final modifyPost");
 
 				//console.log(posts);
 
@@ -229,23 +229,26 @@
 
 				displayPosts(posts);
 
-				//console.log("Finished createPost");
+				console.log("Finished createPost " + post_num);
 			}
 
 			function modifyPost(post_list, post_num) {
-				//console.log("Begin modifyPost");
+				console.log("Entered modifyPost: " + post_num);
 				//console.log(post_list);
+				post_list = sortPostList(post_list);
+
 				var key_list = Object.keys(post_list);
+				console.log("Beginning iteration through all keys");
 				for(var post = 0; post < key_list.length; post++) {
 					key = key_list[post];
-					//console.log("Start key " + key);
+					console.log("MP: Start " + key);
 					if(key == post_num) {
 						//console.log("Found post " + key);
 						//console.log(post_list);
 
 						var d = new Date();
 
-						var post_id = "post_" + d.getUTCFullYear() + "_" + d.getUTCMonth() + "_" + d.getUTCDate() + "_" + d.getUTCHours() + "_" + d.getUTCMinutes() + "_" + d.getUTCSeconds() + "_" + (db.cur_user).toString();
+						var post_id = "post_" + d.getUTCFullYear() + "_" + (d.getUTCMonth() + 1).toString() + "_" + d.getUTCDate() + "_" + d.getUTCHours() + "_" + d.getUTCMinutes() + "_" + d.getUTCSeconds() + "_" + (db.cur_user).toString();
 						var dateOptions = {month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric'};
 						var post_time = d.toLocaleDateString('en-US', dateOptions);
 						var post_level = (parseInt(post_list[key].level) + 1).toString();
@@ -261,38 +264,44 @@
 					//console.log(post_list[key].replies);
 					if(post_list[key] != undefined) {
 						if(Object.keys(post_list[key].replies).length != 0) {
-							//console.log("Post " + key + " replies")
+							console.log("MP: Visiting replies for " + key );
 							post_list[key].replies = modifyPost(post_list[key].replies, post_num);
 						}
 					}
-					//console.log("Finish key " + key);
+					console.log("MP: Finish " + key);
 				}
 				return post_list;
 			}
 
 			function submitPost(post_num) {
 
-				//console.log("Entered submitPost");
+				console.log("Entered submitPost " + post_num);
 
 				var posts = db.boards[db.cur_board];
 
-				post = submitPostHelper(posts, post_num);
+				posts = submitPostHelper(posts, post_num);
 
-				//console.log("Finished final submitPostHelper");
+				console.log("Finished final submitPostHelper " + post_num);
 
 				db.boards[db.cur_board] = posts;
 
 				displayPosts(posts);
+
+				console.log("Finished submitPost " + post_num);
 			}
 
 			function submitPostHelper(post_list, post_num) {
 
+				console.log("Entered submitPostHelper: " + post_num)
+
+				post_list = sortPostList(post_list);
+
 				var key_list = Object.keys(post_list);
 				for(var post = 0; post < key_list.length; post++) {
 					key = key_list[post];
-					//console.log("Start key " + key);
+					console.log("SPH: Start " + key);
 					if(key == post_num) {
-						//console.log("Found post");
+						console.log("SPH: Found " + key);
 						//console.log(post_list);
 
 						var reply_text = document.getElementById('reply-text').value;
@@ -305,20 +314,37 @@
 						post_list[key].time = post_time;
 						post_list[key].newPost = false;
 						post_list[key].text = reply_text;
-						//console.log("Finished adding new post")
+						console.log("SPH: Finished adding new post" + key)
 						//console.log(post_list);
 						return post_list;
 					}
 					//console.log(post_list[key].replies);
 					if(post_list[key] != undefined) {
 						if(Object.keys(post_list[key].replies).length != 0) {
-							//console.log("Post " + key + " replies")
+							console.log("SPH: Visiting replies for " + key)
 							post_list[key].replies = submitPostHelper(post_list[key].replies, post_num);
 						}
 					}
-					//console.log("Finish key " + key);
+					console.log("SPH: Finish " + key);
 				}
 				return post_list;
+			}
+
+			function sortPostList(post_list) {
+
+				var key_list = Object.keys(post_list);
+
+				new_post_list = {}
+
+				key_list.sort( (a,b) => reverseAlphabeticalSort(a,b)).forEach(function(key) {
+					new_post_list[key] = post_list[key];
+				});
+
+				return new_post_list;
+			}
+
+			function reverseAlphabeticalSort(a,b) {
+				return b.localeCompare(a);
 			}
 
 		</script>
