@@ -8,7 +8,7 @@
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
 		<meta charset="UTF-8">
 	</header>
-	<body onload="displayPosts(db.boards[db.cur_board])">
+	<body onload="changeBoard(db.cur_board)">
 		<div id="page">
 			<!--
 			<div id="tab-bar">
@@ -29,10 +29,10 @@
 		    	<img id="avatar" src="avatar.png" alt="avatar.png">
 			    <p id="uinfo">wildcat1</p>
 			    <p class="info-header">My Classes</p>
-			    <a href="main.html"><p class="class-list-hl">MATH 234</p></a>
-			    <p class="class-list">EA1</p>
-			    <p class="class-list">EECS 211</p>
-			    <p class="class-list">CHEM 102</p>
+			    <p id="cl_MATH_234" class="class-list" onclick="changeBoard('MATH_234')">MATH 234</p>
+			    <p id="cl_EA_1" class="class-list" onclick="changeBoard('EA_1')">EA 1</p>
+			    <p id="cl_EECS_211" class="class-list" onclick="changeBoard('EECS_211')">EECS 211</p>
+			    <p id="cl_CHEM_102" class="class-list" onclick="changeBoard('CHEM_102')">CHEM 102</p>
 			    <div class="lp-buttons">
 				    <input type="button" class="buttons" value="My Profile" onclick="window.location.href='user_profile.html'">
 				    <!--
@@ -125,11 +125,65 @@
 							"text":"Your tuition is due",
 							"replies": {}
 						}
+					},
+					"EA_1":{
+						"post_2019_5_10_13_6_0_morty":{
+							"user":"morty",
+							"time":"May 10 1:06 PM",
+							"irt": 0,
+							"level": 0,
+							"newPost": false,
+							"text":"You cant hide from me",
+							"replies": {}
+						}
+					},
+					"EECS_211":{
+						"post_2019_5_10_13_6_0_morty":{
+							"user":"morty",
+							"time":"May 10 1:06 PM",
+							"irt": 0,
+							"level": 0,
+							"newPost": false,
+							"text":"There is no escape",
+							"replies": {}
+						}
+					},
+					"CHEM_102":{
+						"post_2019_5_10_13_6_0_morty":{
+							"user":"morty",
+							"time":"May 10 1:06 PM",
+							"irt": 0,
+							"level": 0,
+							"newPost": false,
+							"text":"That's it. I am hiking tuition by 50%",
+							"replies": {}
+						}
 					}
 				}
 			}`
 
 			var db = JSON.parse(sb);
+
+			function changeBoard(new_board) {
+				db.cur_board = new_board;
+
+				// Modify buttons
+				var class_list = ['MATH_234','EA_1', 'EECS_211','CHEM_102'];
+
+				class_list.forEach(function(elem) {
+					var elem_name = "cl_" + elem;
+					var elem_div = document.getElementById(elem_name);
+					if(elem == new_board) {
+						elem_div.classList.add('class-list-hl');
+					} else {
+						if (elem_div.classList.contains('class-list-hl')) {
+							elem_div.classList.remove('class-list-hl');
+						}
+					}
+				});
+
+				displayPosts(db.boards[db.cur_board]);
+			}
 
 			function displayPosts(posts) {
 
