@@ -1,4 +1,4 @@
-{
+sb = `{
 	"cur_board": "MATH_234",
 	"cur_user": "wildcat1",
 	"users": {
@@ -111,4 +111,4 @@
 			}
 		}
 	}
-}
+}`
