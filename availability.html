@@ -14,16 +14,16 @@
   <div class="jumbotron rounded text-center p-5" style="background-color:#eceff1">
     <a href="user_profile.html"><div class="back-button">
       <i class="material-icons">arrow_back</i></div></a>
-      <h1 class="font-weight-bold mt-5">AVAILABILITY</h1>
+      <h1 class="font-weight-bold mt-5">Availability</h1>
       <p class="font-weight-light">Highlight the hours you are free to study</p>
-    <p class="lead">
-      <div class="container shadow-sm bg-light rounded p-5">
+    <p class="lead" >
+      <div class="container shadow-sm bg-light rounded p-5" style="width: auto; height:750px">
         <div class="panel panel-default">
           <div class="panel-body">
             <p>Click and drag to highlight. Do the same to highlighted to undo it.</br>
             This will be used to help find students who are free when you are.</p>
-            <div class="container" ng-controller="availabilityController">
-              <div class="times">
+            <div class="container" ng-controller="availabilityController" >
+              <div class="times" >
                 <div class="r" ng-repeat="time in times">{{ time }}</div>
               </div>
               <div class="days">

@@ -20,7 +20,8 @@ html {
 	border-radius: 10px;
     height: 45px;
 	font-size: 20px;
-	float: left;
+    float: left;
+    color: #9370DB;
 	background-color: lightgray;
 	border: 1px solid white;
 	text-shadow: 0px 0px black; /*gets rid of the shadow*/
