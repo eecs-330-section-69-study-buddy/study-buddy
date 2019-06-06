@@ -20,7 +20,6 @@
 	color: black; 
 	margin: auto;
 	padding-top: 1.5%;
-	background-color: white;
 	}
 	
 .r {
@@ -65,7 +64,7 @@ td.c {
     outline: 1px solid black; }
 	
 .r .selected {
-    background: green; }
+    background: #9370DB; }
 
 .buttons{
 	text-align: center;
@@ -79,4 +78,10 @@ td.c {
 	padding-bottom: 5px;
 	margin-bottom: 30px;
 	margin-top: 60px;
+}
+
+#save{
+	width: 100px;
+	height: 50px;
+	margin-right: 50px;
 }
