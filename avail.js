@@ -3,6 +3,8 @@ var app = angular.module('availability', []);
 app.controller('availabilityController', function($scope, $document, $element) {
   
   // DATA //
+  var db = JSON.parse(sb);
+
   $scope.week = [
     'Sun',
     'Mon',
@@ -41,8 +43,15 @@ app.controller('availabilityController', function($scope, $document, $element) {
 
   // INIT //
   $scope.schedule = new Array(7);
-  for (var i = 0; i < 7; i++) {
-    $scope.schedule[i] = new Array(24);
+  
+  if (db.users[db.cur_user]["avail"]==null){
+    for (var i = 0; i < 7; i++) {
+      $scope.schedule[i] = new Array(24);
+    }
+  }
+  else {
+    $scope.schedule = db.users[db.cur_user]["avail"];
+    console.log($scope.schedule);
   }
 
   // DRAG TO SELECT //
@@ -94,7 +103,9 @@ app.controller('availabilityController', function($scope, $document, $element) {
       });
     }
   }
-  
+
+
+
   $element.delegate('.c', 'mousedown', wrap(mouseDown));
   $element.delegate('.c', 'mouseenter', wrap(mouseEnter));
   $document.delegate('body', 'mouseup', wrap(mouseUp));

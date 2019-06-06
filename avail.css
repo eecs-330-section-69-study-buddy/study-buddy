@@ -1,18 +1,4 @@
-.back-button { /*back button linked to the previous page*/
-	margin-left: 10px;
-	padding:10px;
-    width: 70px;
-	border-radius: 3px;
-    height: 45px;
-	font-size: 20px;
-	float: left;
-	color: #9370DB;
-	background-color: #9370DB;
-	text-shadow: 0px 0px black; /*gets rid of the shadow*/
-
-
-}
-
+/**CSS specifically for Availability page**/
 .container {
 	width: 75%;
 	height: 100%;

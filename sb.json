@@ -3,7 +3,20 @@ sb = `{
 	"cur_user": "wildcat1",
 	"users": {
 		"wildcat1": {
-			"avail": null,
+			"avail": [[ null, null,null,null,null,null,null,null,1,1,1,1,
+							1,1,1,null,null,null,null,null,null,null,null,null],
+					[null,null,null,null,null,null,null,null,null,null,null,null,
+							null,null,null,null,null,null,null,null,null,null,null],
+					[null,null,null,null,null,null,null,null,null,null,null,null,
+							null,1,1,1,1,1,null,null,null,null,null,null],
+					[null,null,null,null,null,null,null,null,null,null,null,null,
+							null,null,null,null,1,1,1,1,null,null,null,null],
+					[null,null,null,null,null,null,null,null,null,null,null,null,
+							null,null,null,null,null,null,null,null,null,null,null,null],
+					[null,null,null,null,null,null,null,null,null,null,null,null,
+							1,1,1,null,null,1,1,1,null,null,null,null],
+					[null,null,null,null,null,null,null,null,null,null,null,null,
+							null,null,null,null,null,null,null,null,null,null,null,null]],
 			"psl": null
 		},
 		"purple5": {
