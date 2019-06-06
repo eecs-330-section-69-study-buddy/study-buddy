@@ -4,27 +4,13 @@ sb = `{
 	"users": {
 		"wildcat1": {
 			"avail": null,
-			"psl": null
+			"classes": ["MATH_234","EA_1","EECS_211","CHEM_102"],
+			"psl": [1,0,0]
 		},
 		"purple5": {
 			"avail": null,
-			"psl": null
-		},
-		"willie8": {
-			"avail": null,
-			"psl": null
-		},
-		"evan1": {
-			"avail": null,
-			"psl": null
-		},
-		"therock": {
-			"avail": null,
-			"psl": null
-		},
-		"morty": {
-			"avail": null,
-			"psl": null
+			"classes": ["EECS_111","EARTH_201","PSYCH_110","EECS_203"],
+			"psl": [0,1,0]
 		}
 	},
 	"boards": {
@@ -107,6 +93,50 @@ sb = `{
 				"level": 0,
 				"newPost": false,
 				"text":"Last warning",
+				"replies": {}
+			}
+		},
+		"EECS_111":{
+			"post_2019_5_10_13_6_0_morty":{
+				"user":"morty",
+				"time":"May 10 1:06 PM",
+				"irt": 0,
+				"level": 0,
+				"newPost": false,
+				"text":"Thought you could escape from me by switching to a second profile, huh? You were wrong.",
+				"replies": {}
+			}
+		},
+		"EARTH_201":{
+			"post_2019_5_10_13_6_0_morty":{
+				"user":"morty",
+				"time":"May 10 1:06 PM",
+				"irt": 0,
+				"level": 0,
+				"newPost": false,
+				"text":"Every breath you take, every step you take, I'll be watching you",
+				"replies": {}
+			}
+		},
+		"PSYCH_110":{
+			"post_2019_5_10_13_6_0_morty":{
+				"user":"morty",
+				"time":"May 10 1:06 PM",
+				"irt": 0,
+				"level": 0,
+				"newPost": false,
+				"text":"I'm in your head",
+				"replies": {}
+			}
+		},
+		"EECS_203":{
+			"post_2019_5_10_13_6_0_morty":{
+				"user":"morty",
+				"time":"May 10 1:06 PM",
+				"irt": 0,
+				"level": 0,
+				"newPost": false,
+				"text":"I am inevitable",
 				"replies": {}
 			}
 		}

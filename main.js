@@ -1,13 +1,34 @@
 var db = JSON.parse(sb);
 
+function setUpBoard(new_user) {
+	db.cur_user = new_user;
+	db.cur_board = db.users[db.cur_user].classes[0];
+
+	var un_div = document.getElementById('un');
+	un_div.innerHTML = db.cur_user;
+
+	var class_list = db.users[db.cur_user].classes;
+
+	var i = 0;
+	class_list.forEach(function(elem) {
+		var elem_name = "cl" + i;
+		var elem_div = document.getElementById(elem_name);
+		elem_div.innerHTML = elem;
+		i++;
+	});
+
+	changeBoard(db.cur_board);
+}
+
 function changeBoard(new_board) {
 	db.cur_board = new_board;
 
 	// Modify buttons
-	var class_list = ['MATH_234','EA_1', 'EECS_211','CHEM_102'];
+	var class_list = db.users[db.cur_user].classes;
 
+	var i = 0;
 	class_list.forEach(function(elem) {
-		var elem_name = "cl_" + elem;
+		var elem_name = "cl" + i;
 		var elem_div = document.getElementById(elem_name);
 		if(elem == new_board) {
 			elem_div.classList.add('class-list-hl');
@@ -16,6 +37,7 @@ function changeBoard(new_board) {
 				elem_div.classList.remove('class-list-hl');
 			}
 		}
+		i++;
 	});
 
 	displayPosts(db.boards[db.cur_board]);
@@ -23,7 +45,7 @@ function changeBoard(new_board) {
 
 function displayPosts(posts) {
 
-	console.log("Entered DP");
+	//console.log("Entered DP");
 	var old_posts = document.getElementById("board");
 	var new_posts = document.createElement('div');
 	new_posts.id = 'board';
@@ -37,7 +59,7 @@ function displayPosts(posts) {
 
 	//console.log(new_posts);
 
-	console.log("Finished DP")
+	//console.log("Finished DP")
 }
 
 function dPhelper(post_list, new_board, post_lev) {
@@ -111,7 +133,7 @@ function Post(user_inp, time_inp, irt_inp, level_inp, newPost_inp, text_inp, rep
 
 function createPost(post_num) {
 
-	console.log("Entered createPost " + post_num);
+	//console.log("Entered createPost " + post_num);
 
 	var posts = db.boards[db.cur_board];
 
@@ -172,7 +194,7 @@ function modifyPost(post_list, post_num, post_lev) {
 
 function submitPost(post_num) {
 
-	console.log("Entered submitPost " + post_num);
+	//console.log("Entered submitPost " + post_num);
 
 	var posts = db.boards[db.cur_board];
 
