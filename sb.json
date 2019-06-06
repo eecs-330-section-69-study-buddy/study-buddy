@@ -1,0 +1,114 @@
+{
+	"cur_board": "MATH_234",
+	"cur_user": "wildcat1",
+	"users": {
+		"wildcat1": {
+			"avail": null,
+			"psl": null
+		},
+		"purple5": {
+			"avail": null,
+			"psl": null
+		},
+		"willie8": {
+			"avail": null,
+			"psl": null
+		},
+		"evan1": {
+			"avail": null,
+			"psl": null
+		},
+		"therock": {
+			"avail": null,
+			"psl": null
+		},
+		"morty": {
+			"avail": null,
+			"psl": null
+		}
+	},
+	"boards": {
+		"MATH_234": {
+			"post_2019_5_10_22_0_0_purple5": {
+				"user":"purple5",
+				"time":"May 10 10:00 PM",
+				"irt": null,
+				"level": 0,
+				"newPost": false,
+				"text":"Hi, I need a partner",
+				"replies": {
+					"post_2019_5_15_10_30_0_therock": {
+						"user":"therock",
+						"time":"May 15 10:30 AM",
+						"irt": "1",
+						"level": 1,
+						"newPost": false,
+						"text":"Do you want to be partners?",
+						"replies": {}
+					},
+					"post_2019_5_11_14_1_0_willie8":{
+						"user":"willie8",
+						"time":"May 11 2:01 PM",
+						"irt": "1",
+						"level": 1,
+						"newPost": false,
+						"text":"Hi, me too",
+						"replies": {
+							"post_2019_5_12_13_6_0_evan1":{
+								"user":"evan1",
+								"time":"May 12 1:06 PM",
+								"irt": "2",
+								"level": 2,
+								"newPost": false,
+								"text":"Hey, me three",
+								"replies": {}
+							}
+						}
+					}
+				}
+			},
+			"post_2019_5_10_13_6_0_morty":{
+				"user":"morty",
+				"time":"May 10 1:06 PM",
+				"irt": 0,
+				"level": 0,
+				"newPost": false,
+				"text":"Your tuition is due",
+				"replies": {}
+			}
+		},
+		"EA_1":{
+			"post_2019_5_10_13_6_0_morty":{
+				"user":"morty",
+				"time":"May 10 1:06 PM",
+				"irt": 0,
+				"level": 0,
+				"newPost": false,
+				"text":"You cant hide from me",
+				"replies": {}
+			}
+		},
+		"EECS_211":{
+			"post_2019_5_10_13_6_0_morty":{
+				"user":"morty",
+				"time":"May 10 1:06 PM",
+				"irt": 0,
+				"level": 0,
+				"newPost": false,
+				"text":"There is no escape",
+				"replies": {}
+			}
+		},
+		"CHEM_102":{
+			"post_2019_5_10_13_6_0_morty":{
+				"user":"morty",
+				"time":"May 10 1:06 PM",
+				"irt": 0,
+				"level": 0,
+				"newPost": false,
+				"text":"Last warning",
+				"replies": {}
+			}
+		}
+	}
+}
