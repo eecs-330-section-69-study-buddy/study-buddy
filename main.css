@@ -38,6 +38,22 @@ p {
 
 }
 
+#uinfo {
+	
+}
+
+.info-header {
+	font-size: 1.2em;
+	margin-bottom: 2px;
+}
+
+.class-list {
+	width: 96%;
+	padding: 1px;
+	padding-top: 4px;
+	padding-left: 4px;
+}
+
 .class-list-hl {
 	width: 96%;
 	padding: 1px;
@@ -49,8 +65,7 @@ p {
 	border-radius: 3px;
 }
 
-
-
+/*
 .tab {
 	width: 20%;
 	height: 100%;
@@ -63,6 +78,7 @@ p {
 	margin-left: 3%;
 
 }
+*/
 
 #board {
 	position: fixed;

@@ -197,18 +197,18 @@
 				var post_page = document.getElementById('page')
 				post_page.replaceChild(new_posts,old_posts);
 
-				dPhelper(posts, new_posts);
+				dPhelper(posts, new_posts, 0);
 
 				//console.log(new_posts);
 
 				console.log("Finished DP")
 			}
 
-			function dPhelper(post_list, new_board) {
-				console.log("Entered DP-H");
+			function dPhelper(post_list, new_board, post_lev) {
+				//console.log("Entered DP-H");
 				//console.log(post_list);
 
-				post_list = sortPostList(post_list);
+				var post_list = sortPostList(post_list, post_lev);
 
 				var key_list = Object.keys(post_list);
 				//console.log(key_list);
@@ -223,7 +223,7 @@
 					post_div.style.marginLeft = css_indent;
 
 					if(post_list[key].newPost) {
-						console.log("DPH: Rendering new " + key);
+						//console.log("DPH: Rendering new " + key);
 						var contents = `<p class='post-un'>${db.cur_user}</p>
 										<form id='reply-form'>
 											<input id='reply-text' type="text">
@@ -239,7 +239,7 @@
 
 						//document.getElementById('post-submit').addEventListener('onclick',);
 					} else {
-						console.log("DPH: Rendering old " + key);
+						//console.log("DPH: Rendering old " + key);
 						//console.log(post_list);
 						var contents = `<p class='post-un'>${post_list[key].user}</p>
 		    							<p class='post-text'>${post_list[key].text}</p>
@@ -249,15 +249,15 @@
 		    									onclick='createPost("${key}")'>Reply</button>
 		    							</div>`;
 
-		    			console.log(contents)
+		    			//console.log(contents)
 						post_div.innerHTML = contents;
 						new_board.appendChild(post_div);
 
 						if(Object.keys(post_list[key].replies).length != 0) {
-							console.log("DPH: Recursing into replies of " + key);
-							dPhelper(post_list[key].replies, new_board);
+							//console.log("DPH: Recursing into replies of " + key);
+							dPhelper(post_list[key].replies, new_board, post_lev + 1);
 						}
-						console.log("DPH: Finished with " + key);
+						//console.log("DPH: Finished with " + key);
 					}
 				}
 
@@ -279,9 +279,9 @@
 
 				var posts = db.boards[db.cur_board];
 
-				posts = modifyPost(posts, post_num);
+				posts = modifyPost(posts, post_num, 0);
 
-				console.log("Finished final modifyPost");
+				//console.log("Finished final modifyPost");
 
 				//console.log(posts);
 
@@ -289,19 +289,20 @@
 
 				displayPosts(posts);
 
-				console.log("Finished createPost " + post_num);
+				//console.log("Finished createPost " + post_num);
 			}
 
-			function modifyPost(post_list, post_num) {
-				console.log("Entered modifyPost: " + post_num);
+			function modifyPost(post_list, post_num, post_lev) {
+				//console.log("Entered modifyPost: " + post_num);
 				//console.log(post_list);
-				post_list = sortPostList(post_list);
+
+				var post_list = sortPostList(post_list, post_lev);
 
 				var key_list = Object.keys(post_list);
-				console.log("Beginning iteration through all keys");
+				//console.log("Beginning iteration through all keys");
 				for(var post = 0; post < key_list.length; post++) {
 					var key = key_list[post];
-					console.log("MP: Start " + key);
+					//console.log("MP: Start " + key);
 					if(key == post_num) {
 						//console.log("Found post " + key);
 						//console.log(post_list);
@@ -324,11 +325,11 @@
 					//console.log(post_list[key].replies);
 					if(post_list[key] != undefined) {
 						if(Object.keys(post_list[key].replies).length != 0) {
-							console.log("MP: Visiting replies for " + key );
-							post_list[key].replies = modifyPost(post_list[key].replies, post_num);
+							//console.log("MP: Visiting replies for " + key );
+							post_list[key].replies = modifyPost(post_list[key].replies, post_num, post_lev + 1);
 						}
 					}
-					console.log("MP: Finish " + key);
+					//console.log("MP: Finish " + key);
 				}
 				return post_list;
 			}
@@ -339,29 +340,29 @@
 
 				var posts = db.boards[db.cur_board];
 
-				posts = submitPostHelper(posts, post_num);
+				posts = submitPostHelper(posts, post_num, 0);
 
-				console.log("Finished final submitPostHelper " + post_num);
+				//console.log("Finished final submitPostHelper " + post_num);
 
 				db.boards[db.cur_board] = posts;
 
 				displayPosts(posts);
 
-				console.log("Finished submitPost " + post_num);
+				//console.log("Finished submitPost " + post_num);
 			}
 
-			function submitPostHelper(post_list, post_num) {
+			function submitPostHelper(post_list, post_num, post_lev) {
 
-				console.log("Entered submitPostHelper: " + post_num)
+				//console.log("Entered submitPostHelper: " + post_num)
 
-				post_list = sortPostList(post_list);
+				post_list = sortPostList(post_list, post_lev);
 
 				var key_list = Object.keys(post_list);
 				for(var post = 0; post < key_list.length; post++) {
 					key = key_list[post];
-					console.log("SPH: Start " + key);
+					//console.log("SPH: Start " + key);
 					if(key == post_num) {
-						console.log("SPH: Found " + key);
+						//console.log("SPH: Found " + key);
 						//console.log(post_list);
 
 						var reply_text = document.getElementById('reply-text').value;
@@ -374,33 +375,45 @@
 						post_list[key].time = post_time;
 						post_list[key].newPost = false;
 						post_list[key].text = reply_text;
-						console.log("SPH: Finished adding new post" + key)
+						//console.log("SPH: Finished adding new post" + key)
 						//console.log(post_list);
 						return post_list;
 					}
 					//console.log(post_list[key].replies);
 					if(post_list[key] != undefined) {
 						if(Object.keys(post_list[key].replies).length != 0) {
-							console.log("SPH: Visiting replies for " + key)
-							post_list[key].replies = submitPostHelper(post_list[key].replies, post_num);
+							//console.log("SPH: Visiting replies for " + key)
+							post_list[key].replies = submitPostHelper(post_list[key].replies, post_num, post_lev + 1);
 						}
 					}
-					console.log("SPH: Finish " + key);
+					//console.log("SPH: Finish " + key);
 				}
 				return post_list;
 			}
 
-			function sortPostList(post_list) {
+			function sortPostList(post_list, level) {
 
 				var key_list = Object.keys(post_list);
 
 				new_post_list = {}
 
-				key_list.sort( (a,b) => reverseAlphabeticalSort(a,b)).forEach(function(key) {
-					new_post_list[key] = post_list[key];
-				});
+				if(level == 0) {
+					key_list.sort( (a,b) => reverseAlphabeticalSort(a,b)).forEach(function(key) {
+						new_post_list[key] = post_list[key];
+					});
+				} else {
+					key_list.sort( (a,b) => alphabeticalSort(a,b)).forEach(function(key) {
+						new_post_list[key] = post_list[key];
+					});
+				}
+
+				
 
 				return new_post_list;
+			}
+
+			function alphabeticalSort(a,b) {
+				return a.localeCompare(b);
 			}
 
 			function reverseAlphabeticalSort(a,b) {
