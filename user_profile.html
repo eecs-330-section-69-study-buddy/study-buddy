@@ -8,6 +8,7 @@
         <link href="pretty.css" rel="stylesheet" type="text/css">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+        <meta charset="UTF-8">
     </header>
 
     <div class="jumbotron rounded text-center p-5" style="background-color:#eceff1">
@@ -170,11 +171,11 @@
                         <div tabindex="0" role="tabpanel" id="locations-tab" aria-labelledby="location" hidden="">
                             <br>
                             <div class="form-check">
-                                <input class="checkboxes" type="checkbox">North Campus
+                                <input id="cb0" class="checkboxes" type="checkbox">North Campus
                                 <br>
-                                <input class="checkboxes" type="checkbox">South Campus
+                                <input id="cb1" class="checkboxes" type="checkbox">South Campus
                                 <br>
-                                <input class="checkboxes" type="checkbox">Off Campus
+                                <input id="cb2" class="checkboxes" type="checkbox">Off Campus
                             </div>
                             <div class="control-group text-center">
                                 <a href="user_profile.html">
@@ -215,7 +216,7 @@
                               c = c.substring(1);
                             }
                             if (c.indexOf(name) == 0) {
-                                console.log(c.substring(name.length, c.length));
+                                //console.log(c.substring(name.length, c.length));
                               return c.substring(name.length, c.length);
                             }
                           }
@@ -229,17 +230,18 @@
                             var un_div = document.getElementById('un');
                             un_div.innerHTML = db.cur_user;
 
-                            var class_list = db.users[db.cur_user].classes;
+                            // Sets up checklists
+                            var psl_list = db.users[db.cur_user].psl;
 
                             var i = 0;
-                            class_list.forEach(function(elem) {
-                                var elem_name = "cl" + i;
+                            psl_list.forEach(function(elem) {
+                                var elem_name = "cb" + i;
                                 var elem_div = document.getElementById(elem_name);
-                                elem_div.innerHTML = elem;
+                                if(elem == 1) {
+                                    elem_div.setAttribute('checked', 'checked');
+                                }
                                 i++;
                             });
-
-                            changeBoard(db.cur_board);
                         }
 
                         (function() {
