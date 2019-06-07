@@ -21,11 +21,14 @@
 					<form action="main.html" class="needs-validation" novalidate>
 						<label for="username1">Username</label>
 						<div class="form-group" align="center">
-			      			<input type="username1" class="form-control" id="exampleInputEmail1" style="width:50%" aria-describedby="emailHelp" placeholder="Enter Username">
+			      			<input type="username1" class="form-control" id="exampleInputEmail1" style="width:50%" placeholder="Enter Username" required>
+						<div class="invalid-feedback">Username required.</div>
 			    		</div>
 						<label for="exampleInputPassword1">Password</label>
 			    		<div class="form-group" align="center">
-			      			<input type="password" class="form-control" style="width:50%" id="exampleInputPassword1" placeholder="Enter Password">
+			      			<input type="password" class="form-control" style="width:50%" id="exampleInputPassword1" placeholder="Enter Password" required>
+					<div class="invalid-feedback">Password required.</div>
+
 			    		</div>
  						<p class="reg">Don't have an account? Register <a href="register3.html">here</a>.</p>
 						<a href="main.html">
@@ -40,17 +43,6 @@
 <script type="text/javascript" src="sb.json"></script>
 <script type="text/javascript">
 	var db = JSON.parse(sb);
-
-    $(document).ready(function() {
-        $(".add-more").click(function(){
-            var html = $(".copy").html();
-            $(".after-add-more").after(html);
-        });
-
-        $("body").on("click",".remove",function(){
-            $(this).parents(".control-group").remove();
-        });
-    });
 
 	(function() {
 		'use strict';
