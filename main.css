@@ -118,6 +118,7 @@ p {
 
 .post-nav {
 	background-color: #DDD;
+	border-radius: 3px;
 }
 
 .post-date {
