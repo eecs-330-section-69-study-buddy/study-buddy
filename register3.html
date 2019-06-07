@@ -17,33 +17,29 @@
   <h1 class="font-weight-bold mt-5">Register</h1>
   <p class="font-weight-light">Please fill in this form to create an account.</p>
   <p class="lead">
-
 							<div class="container shadow-sm bg-light rounded p-5" style="width:35%">
 							  <div class="panel panel-default">
 							    <div class="panel-body">
-
                     <form action="classesPage.html" class="needs-validation" novalidate>
                       <label>Email address</label>
-    <div class="form-group" align="center">
-      <input style="width:50%" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Email">
-    </div>
-    <label for="username1">Username</label>
-    <div class="form-group" align="center">
-      <input style="width:50%" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Username">
-    </div>
-    <label for="exampleInputPassword1">Password</label>
-    <div class="form-group" align="center">
-      <input style="width:50%" type="password" class="form-control" id="exampleInputPassword1" placeholder="Enter Password">
-    </div>
-    <label for="exampleInputPassword2">Repeat Password</label>
-    <div class="form-group" align="center">
-      <input style="width:50%" type="password" class="form-control" id="exampleInputPassword2" placeholder="Re-Enter Password">
-    </div>
-
-
+                      <div class="form-group" align="center">
+                        <input style="width:50%" type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter Email" required>
+                      </div>
+                      <label for="username1">Username</label>
+                      <div class="form-group" align="center">
+                        <input style="width:50%" type="username1" class="form-control" id="exampleInputUsername1" aria-describedby="emailHelp" placeholder="Enter Username">
+                      </div>
+                      <label for="exampleInputPassword1">Password</label>
+                      <div class="form-group" align="center">
+                        <input style="width:50%" type="password" class="form-control" id="exampleInputPassword1" placeholder="Enter Password" required>
+                      </div>
+                      <label for="exampleInputPassword2">Repeat Password</label>
+                      <div class="form-group" align="center">
+                        <input style="width:50%" type="password" class="form-control" id="exampleInputPassword2" placeholder="Re-Enter Password" required>
+                      </div>
 
                         <a href="classesPage.html">
-              						<button class="btn" type="submit">Register</button>
+              						<button class="btn" type="submit" onclick="getUN()">Register</button>
               					</a>
 
                         <!--
@@ -57,16 +53,11 @@
                         <p>Already have an account? <a href="login.html">Log in</a>.</p>
                       </div>
                     </form>
-
+              </div>
+            </div>
+          </div>
   </p>
 </div>
-
-							</div>
-						</div>
-					</div>
-
-
-
           <script type="text/javascript">
 
               $(document).ready(function() {
@@ -99,7 +90,21 @@
             }, false);
           })();
 
-          </script>
+          function clear_cookies() {
+            //console.log("Cookies before: " + document.cookie);
+            document.cookie.split(";").forEach(function(c) { document.cookie = c.replace(/^ +/, "").replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/"); });
+              //console.log("Cookies after: " + document.cookie);
+          }
 
+          function getUN() {
+            clear_cookies();
+            var un = document.getElementById('exampleInputUsername1').value;
+            //console.log("UN: " + un);
+            var cookie_text = "username=" + un + "; path=/;";
+            //console.log("Cookie Text: " + cookie_text);
+            document.cookie = cookie_text;
+          }
+
+          </script>
 </body>
 </html>

@@ -1,7 +1,23 @@
 var db = JSON.parse(sb);
 
-function setUpBoard(new_user) {
-	db.cur_user = new_user;
+function getCookie(cname) {
+  var name = cname + "=";
+  var ca = document.cookie.split(';');
+  for(var i = 0; i < ca.length; i++) {
+    var c = ca[i];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+        console.log(c.substring(name.length, c.length));
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
+}
+
+function setUpBoard() {
+	db.cur_user = getCookie('username');
 	db.cur_board = db.users[db.cur_user].classes[0];
 
 	var un_div = document.getElementById('un');

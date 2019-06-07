@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 
-<body>
+<body onload="setUpProfile()">
     <header>
         <title>User Profile</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -27,7 +27,7 @@
                         <h6 class="">Edit Your Photo</h6>
                     </div>
 
-                    <h1>wildcat1</h1>
+                    <h1 id='un'></h1>
 
                     <div class="tabs">
                         <div role="tablist" aria-label="Entertainment">
@@ -206,7 +206,46 @@
                         </div>
                     </div>
 
+                    <script type="text/javascript" src="sb.json"></script>
                     <script>
+                        var db = JSON.parse(sb);
+
+                        function getCookie(cname) {
+                          var name = cname + "=";
+                          var ca = document.cookie.split(';');
+                          for(var i = 0; i < ca.length; i++) {
+                            var c = ca[i];
+                            while (c.charAt(0) == ' ') {
+                              c = c.substring(1);
+                            }
+                            if (c.indexOf(name) == 0) {
+                                console.log(c.substring(name.length, c.length));
+                              return c.substring(name.length, c.length);
+                            }
+                          }
+                          return "";
+                        }
+
+                        function setUpProfile() {
+                            db.cur_user = getCookie('username');
+                            db.cur_board = db.users[db.cur_user].classes[0];
+
+                            var un_div = document.getElementById('un');
+                            un_div.innerHTML = db.cur_user;
+
+                            var class_list = db.users[db.cur_user].classes;
+
+                            var i = 0;
+                            class_list.forEach(function(elem) {
+                                var elem_name = "cl" + i;
+                                var elem_div = document.getElementById(elem_name);
+                                elem_div.innerHTML = elem;
+                                i++;
+                            });
+
+                            changeBoard(db.cur_board);
+                        }
+
                         (function() {
                             var tablist = document.querySelectorAll('[role="tablist"]')[0];
                             var tabs;
