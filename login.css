@@ -1,0 +1,56 @@
+
+body {
+	font-family: Helvetica, Ariel;
+	font-size: 22px;
+	color: #444;
+}
+
+p {
+	margin: 0;
+	margin-top: 5px;
+}
+
+a {
+	text-decoration: underline;
+}
+
+#page {
+	display: flex;
+	justify-content: center;
+}
+
+#main {
+	align-self: center;
+	margin-top: 20px;
+	text-align: center;
+}
+
+.title {
+	font-size: 1.3em;
+	margin-bottom: 15px;
+	color: #111;
+}
+
+.info-header {
+	font-size: 1.1em;
+	margin-bottom: 5px;
+	color: #111;
+}
+
+.text-form {
+	margin-bottom: 5px;
+}
+
+.reg {
+	font-size: 0.7em;
+	margin-bottom: 10px;
+}
+
+.buttons {
+	text-align: center;
+	font-size: 0.9em;
+	color: white;
+	background-color: #444;
+	border-color: #444;
+	border-radius: 3px;
+}

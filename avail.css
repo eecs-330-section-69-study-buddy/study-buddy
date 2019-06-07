@@ -1,0 +1,87 @@
+.back-button { /*back button linked to the previous page*/
+	margin-left: 10px;
+	padding:10px;
+    width: 70px;
+	border-radius: 3px;
+    height: 45px;
+	font-size: 20px;
+	float: left;
+	color: blue-grey;
+	background-color: #9370DB;
+	text-shadow: 0px 0px black; /*gets rid of the shadow*/
+
+
+}
+
+.container {
+	width: 75%;
+	height: 100%;
+	font-family: "Lato", sans-serif;
+	color: black; 
+	margin: auto;
+	padding-top: 1.5%;
+	}
+	
+.r {
+	height: 23px;
+    width: 100%; }
+	
+.r .c {
+    height: 100%;
+    width: 14%;
+    background: white;
+    float: left; }
+	
+.times {
+    width: 3%;
+    margin-top: 40px;
+    margin-bottom: 10px;
+    padding-right: 1%;
+    float: left;
+    text-align: right;
+    font-size: .75em; }
+	
+.times .r {
+    margin: 1px 0; }
+	
+.days {
+	width: 90%;
+	float: right;
+	text-align: center; }
+table.schedule {
+    width: 100%;
+    padding: 0;
+    border-top: 3px solid black;
+    border-bottom: 3px solid black;
+    -webkit-border-horizontal-spacing: 1px;
+    -webkit-border-vertical-spacing: 0; }
+tr.r {
+    height: 22px; 
+	margin: 1px 0;}
+	
+td.c {
+    padding: 12px 0;
+    outline: 1px solid black; }
+	
+.r .selected {
+    background: #9370DB; }
+
+.buttons{
+	text-align: center;
+	font-size: 0.9em;
+	color: white;
+	background-color: #9370DB;
+	border-radius: 3px;
+	border: none;
+	cursor: pointer;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	margin-bottom: 30px;
+	margin-top: 60px;
+}
+
+#save{
+	width: 100px;
+	height: 50px;
+	margin-right: 50px;
+}

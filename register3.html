@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html class= "blue-grey lighten-5">
+<head>
+</head>
+<body>
+
+	<header>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<link href="pretty.css" rel="stylesheet" type="text/css">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+</header>
+
+<div class="jumbotron rounded text-center p-5" style="background-color:#eceff1">
+		<a href="login.html"><div class="back-button">
+		<i class="material-icons">arrow_back</i></div></a>
+  <h1 class="font-weight-bold mt-5">Register</h1>
+  <p class="font-weight-light">Please fill in this form to create an account.</p>
+  <p class="lead">
+							<div class="container shadow-sm bg-light rounded p-5" style="width:35%">
+							  <div class="panel panel-default">
+							    <div class="panel-body">
+                    <form action="classesPage.html" class="needs-validation" novalidate>
+                      <label>Email address</label>
+                      <div class="form-group" align="center">
+                        <input style="width:50%" type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter Email" required>
+												<div class="invalid-feedback">Email required.</div>
+
+                      </div>
+                      <label for="username1">Username</label>
+                      <div class="form-group" align="center">
+                        <input style="width:50%" type="username1" class="form-control" id="exampleInputUsername1"  placeholder="Enter Username" required>
+												<div class="invalid-feedback">Username required.</div>
+
+                      </div>
+                      <label for="exampleInputPassword1">Password</label>
+                      <div class="form-group" align="center">
+                        <input style="width:50%" type="password" class="form-control" id="exampleInputPassword1" placeholder="Enter Password" required>
+												<div class="invalid-feedback">Password required.</div>
+
+                      </div>
+                      <label for="exampleInputPassword2">Repeat Password</label>
+                      <div class="form-group" align="center">
+                        <input style="width:50%" type="password" class="form-control" id="exampleInputPassword2" placeholder="Re-Enter Password" required>
+												<div class="invalid-feedback">Password required.</div>
+
+                      </div>
+
+                        <a href="classesPage.html">
+              						<button class="btn" type="submit" onclick="getUN()">Register</button>
+              					</a>
+
+                        <!--
+                        <form>
+                          <input class="btn" value="Back"
+                          onclick="history.back()">
+                        </form>
+                      -->
+
+                      <div class="container signin">
+                        <p>Already have an account? <a href="login.html">Log in</a>.</p>
+                      </div>
+                    </form>
+              </div>
+            </div>
+          </div>
+  </p>
+</div>
+
+          <script type="text/javascript">
+
+          	(function() {
+            'use strict';
+            window.addEventListener('load', function() {
+              // Get the forms we want to add validation styles to
+              var forms = document.getElementsByClassName('needs-validation');
+              // Loop over them and prevent submission
+              var validation = Array.prototype.filter.call(forms, function(form) {
+                form.addEventListener('submit', function(event) {
+                  if (form.checkValidity() === false) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                  }
+                  form.classList.add('was-validated');
+                }, false);
+              });
+            }, false);
+          })();
+          function clear_cookies() {
+            //console.log("Cookies before: " + document.cookie);
+            document.cookie.split(";").forEach(function(c) { document.cookie = c.replace(/^ +/, "").replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/"); });
+              //console.log("Cookies after: " + document.cookie);
+          }
+          function getUN() {
+            clear_cookies();
+            var un = document.getElementById('exampleInputUsername1').value;
+            //console.log("UN: " + un);
+            var cookie_text = "username=" + un + "; path=/;";
+            //console.log("Cookie Text: " + cookie_text);
+            document.cookie = cookie_text;
+          }
+          </script>
+</body>
+</html>

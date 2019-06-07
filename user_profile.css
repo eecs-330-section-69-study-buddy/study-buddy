@@ -1,0 +1,110 @@
+body {
+	font-family: Helvetica, Ariel;
+	font-size: 18px;
+	color: #444;
+}
+
+p {
+	margin: 0;
+	margin-top: 5px;
+}
+
+a {
+	text-decoration: none;
+}
+
+#page {
+	display: flex;
+	justify-content: center;
+}
+
+#main {
+	align-self: center;
+	margin-top: 20px;
+	
+}
+
+#paragraph{
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
+
+#avatar {
+	height: 150px;
+	width: 150px;
+	margin-left: 25px;
+	border-style: solid;
+	border-width: 2px;
+	border-radius: 6px;
+	border-color: grey;
+
+}
+
+
+
+.info-header {
+	font-size: 1.1em;
+	margin-top: 15px;
+	color: #111;
+	font-weight: bold;
+}
+
+.info-header-sub {
+	color: #111;
+}
+
+.class-list-hl {
+	width: 50%;
+	padding: 1px;
+	padding-top: 4px;
+	padding-left: 4px;
+	color: #444;
+	background-color: #AAA;
+	border-color: #AAA;
+	border-radius: 2px;
+}
+
+.links {
+	text-align: center;
+	padding: 1px;
+	padding-top: 4px;
+	padding-left: 4px;
+	color: white;
+	background-color: #9370DB;
+	border-color: #9370DB;
+	border-radius: 3px;
+}
+
+.buttons {
+	width: 100%;
+	margin-top: 5px;
+	text-align: center;
+	font-size: 0.9em;
+	color: white;
+	background-color: #9370DB;
+	border-color: #9370DB;
+	border-radius: 3px;
+}
+
+.checkboxes {
+
+}
+
+#logout {
+	width: 80px;
+}
+
+.back-button { /*back button linked to the previous page*/
+	margin-left: 10px;
+	padding:10px;
+    width: 70px;
+	border-radius: 3px;
+    height: 45px;
+	font-size: 20px;
+	float: left;
+	color: #9370DB;
+	background-color: #9370DB;
+	text-shadow: 0px 0px black; /*gets rid of the shadow*/
+
+
+}

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<header>
+		<title>Study Buddy</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+		<link href="main.css" rel="stylesheet" type="text/css">
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+		
+		<meta charset="UTF-8">
+	</header>
+	<body onload="setUpBoard()">
+		<div id="page">
+		    <div id="left-panel">
+				<div class="picture-container">
+					<div class="picture">
+						<img src="avatar.png" class="picture-src"/>
+					</div>
+				</div>
+				<h3 id="un" class="text-center"></h3>
+				<br>
+			    <h5 class="info-header text-center">My Classes</h5>
+
+				<div class="button-things">
+			    	<p id="cl0" class="class-list" onclick="changeBoard(db.users[db.cur_user].classes[0])"></p>
+			    	<p id="cl1" class="class-list" onclick="changeBoard(db.users[db.cur_user].classes[1])"></p>
+			    	<p id="cl2" class="class-list" onclick="changeBoard(db.users[db.cur_user].classes[2])"></p>
+			    	<p id="cl3" class="class-list" onclick="changeBoard(db.users[db.cur_user].classes[3])"></p>
+				</div>
+				<div class="makePost">
+					<input type="button" class="buttons" value="Make Post" onclick="createPost('base')">
+				</div>
+
+			    <div class="lp-buttons">
+				    <input type="button" class="buttons" value="My Profile" onclick="window.location.href='user_profile.html'">
+				    <!--
+				    <input type="button" class="buttons" value="Edit My Classes" onclick="window.location.href='classesPage.html'">
+					-->
+				    <input type="button" id="logout" class="buttons" value="Log out" onclick="window.location.href='login.html'">
+				</div>
+		    </div>
+		    <div id="filter">
+		    </div>
+		    <div id="board">
+		    </div>
+		</div>
+		<script type="text/javascript" src="sb.json"></script>
+		<script type="text/javascript" src="main.js"></script>
+	</body>
+</html>

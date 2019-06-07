@@ -1,0 +1,157 @@
+sb = `{
+	"cur_board": "MATH_234",
+	"cur_user": "wildcat1",
+	"users": {
+		"wildcat1": {
+			"avail": [[ null, null,null,null,null,null,null,null,1,1,1,1,
+				1,1,1,null,null,null,null,null,null,null,null,null],
+		[null,null,null,null,null,null,null,null,null,null,null,null,
+				null,null,null,null,null,null,null,null,null,null,null],
+		[null,null,null,null,null,null,null,null,null,null,null,null,
+				null,1,1,1,1,1,null,null,null,null,null,null],
+		[null,null,null,null,null,null,null,null,null,null,null,null,
+				null,null,null,null,1,1,1,1,null,null,null,null],
+		[null,null,null,null,null,null,null,null,null,null,null,null,
+				null,null,null,null,null,null,null,null,null,null,null,null],
+		[null,null,null,null,null,null,null,null,null,null,null,null,
+				1,1,1,null,null,1,1,1,null,null,null,null],
+		[null,null,null,null,null,null,null,null,null,null,null,null,
+				null,null,null,null,null,null,null,null,null,null,null,null]],
+			"classes": ["MATH_234","EA_1","EECS_211","CHEM_102"],
+			"psl": [1,0,0]
+		},
+		"purple5": {
+			"avail": null,
+			"classes": ["EECS_111","EARTH_201","PSYCH_110","EECS_203"],
+			"psl": [0,1,0]
+		}
+	},
+	"boards": {
+		"MATH_234": {
+			"post_2019_5_10_22_0_0_purple5": {
+				"user":"purple5",
+				"time":"May 10 10:00 PM",
+				"irt": "base",
+				"level": 0,
+				"newPost": false,
+				"text":"Hi, I need a partner",
+				"replies": {
+					"post_2019_5_15_10_30_0_therock": {
+						"user":"therock",
+						"time":"May 15 10:30 AM",
+						"irt": "post_2019_5_10_22_0_0_purple5",
+						"level": 1,
+						"newPost": false,
+						"text":"Do you want to be partners?",
+						"replies": {}
+					},
+					"post_2019_5_11_14_1_0_willie8":{
+						"user":"willie8",
+						"time":"May 11 2:01 PM",
+						"irt": "post_2019_5_10_22_0_0_purple5",
+						"level": 1,
+						"newPost": false,
+						"text":"Hi, me too",
+						"replies": {
+							"post_2019_5_12_13_6_0_evan1":{
+								"user":"evan1",
+								"time":"May 12 1:06 PM",
+								"irt": "post_2019_5_11_14_1_0_willie8",
+								"level": 2,
+								"newPost": false,
+								"text":"Hey, me three",
+								"replies": {}
+							}
+						}
+					}
+				}
+			},
+			"post_2019_5_10_13_6_0_morty":{
+				"user":"morty",
+				"time":"May 10 1:06 PM",
+				"irt": "base",
+				"level": 0,
+				"newPost": false,
+				"text":"Your tuition is due",
+				"replies": {}
+			}
+		},
+		"EA_1":{
+			"post_2019_5_10_13_6_0_morty":{
+				"user":"morty",
+				"time":"May 10 1:06 PM",
+				"irt": "base",
+				"level": 0,
+				"newPost": false,
+				"text":"You cant hide from me",
+				"replies": {}
+			}
+		},
+		"EECS_211":{
+			"post_2019_5_10_13_6_0_morty":{
+				"user":"morty",
+				"time":"May 10 1:06 PM",
+				"irt": "base",
+				"level": 0,
+				"newPost": false,
+				"text":"There is no escape",
+				"replies": {}
+			}
+		},
+		"CHEM_102":{
+			"post_2019_5_10_13_6_0_morty":{
+				"user":"morty",
+				"time":"May 10 1:06 PM",
+				"irt": "base",
+				"level": 0,
+				"newPost": false,
+				"text":"Last warning",
+				"replies": {}
+			}
+		},
+		"EECS_111":{
+			"post_2019_5_10_13_6_0_morty":{
+				"user":"morty",
+				"time":"May 10 1:06 PM",
+				"irt": "base",
+				"level": 0,
+				"newPost": false,
+				"text":"Thought you could escape from me by switching to a second profile, huh? You were wrong.",
+				"replies": {}
+			}
+		},
+		"EARTH_201":{
+			"post_2019_5_10_13_6_0_morty":{
+				"user":"morty",
+				"time":"May 10 1:06 PM",
+				"irt": "base",
+				"level": 0,
+				"newPost": false,
+				"text":"Every breath you take, every step you take, I'll be watching you",
+				"replies": {}
+			}
+		},
+		"PSYCH_110":{
+			"post_2019_5_10_13_6_0_morty":{
+				"user":"morty",
+				"time":"May 10 1:06 PM",
+				"irt": "base",
+				"level": 0,
+				"newPost": false,
+				"text":"I'm in your head",
+				"replies": {}
+			}
+		},
+		"EECS_203":{
+			"post_2019_5_10_13_6_0_morty":{
+				"user":"morty",
+				"time":"May 10 1:06 PM",
+				"irt": "base",
+				"level": 0,
+				"newPost": false,
+				"text":"I am inevitable",
+				"replies": {}
+			}
+		}
+	}
+}`
