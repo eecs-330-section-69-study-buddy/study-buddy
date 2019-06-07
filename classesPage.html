@@ -3,6 +3,14 @@
 <html class= "blue-grey lighten-10">
 <head>
 </head>
+
+<style type="text/css">
+#bootstrapSelectForm .selectContainer .form-control-feedback {
+    /* Adjust feedback icon position */
+    right: -15px;
+}
+</style>
+
 <body>
 
 	<header>
@@ -15,10 +23,9 @@
 <div class="jumbotron rounded text-center blue-grey lighten-5 p-5">
 		<a href="register3.html"><div class="back-button">
 		<i class="material-icons">arrow_back</i></div></a>
-  <h1 class="font-weight-bold mt-5">ADD CLASSES</h1>
+  <h1 class="font-weight-bold mt-5">Add Classes</h1>
   <p class="font-weight-light">Add your courses to find your peers.</p>
   <p class="lead">
-
 							<div class="container shadow-sm bg-light rounded p-5">
 							  <div class="panel panel-default">
 							    <div class="panel-body">
@@ -26,46 +33,55 @@
 							      	<div class="input-group control-group after-add-more justify-content-center">
 													<div class="form-group">
 														<label> Term </label>
-														<select class="form-control">
+														<select class="form-control custom-select" title="Please Select" required>
+															<option value="">Select Term</option>
 															<option value="Spring 2019">Spring 2019</option>
 															<option value="Summer 2019">Summer 2019</option>
 															<option value="Summer 2019">Spring 2019</option>
 														</select>
+														<div class="invalid-feedback ml-4">Please select current term.</div>
 													</div>
 
 													<div class="form-group">
 														<label> Department </label>
-														<select class="form-control">
+														<select class="custom-select form-control" required>
+															<option value="">Select Department</option>
 															<option value="CHEM">CHEM</option>
 															<option value="EECS">EECS</option>
 															<option value="GEN_ENG">GEN_ENG</option>
-															<option value="GNDR_ST">GNDR_ST</option>
+															<option value="EARTH">EARTH</option>
 															<option value="MATH">MATH</option>
-															<option value="NEUROSCI">NEUROSCI</option>
 															<option value="PSYCH">PSYCH</option>
-															<option value="" selected disabled hidden>Select Department</option>
 														</select>
+														<div class="invalid-feedback ml-5">Please select course department.</div>
 													</div>
 
 													<div class="form-group">
 														<label> Course </label>
-														<select class="form-control">
+														<select class="custom-select form-control" required>
+															<option value="">Select Course</option>
 															<option value="101">101-0</option>
-															<option value="101">210-0</option>
-															<option value="101">212-0</option>
-															<option value="101">321-0</option>
-															<option value="101">330-0</option>
-															<option value="" selected disabled hidden>Select Course</option>
+															<option value="101">102-0</option>
+															<option value="101">110-0</option>
+															<option value="101">111-0</option>
+															<option value="101">201-0</option>
+															<option value="101">203-0</option>
+															<option value="101">211-0</option>
+															<option value="101">234-0</option>
 														</select>
+														<div class="invalid-feedback ml-4">Please select course.</div>
 													</div>
 
 													<div class="form-group">
 														<label> Section </label>
-														<select id="section" class="form-control">
+														<select id="section" class="custom-select form-control" required>
+															<option value="">Select Section</option>
 															<option value="01">01</option>
 															<option value="02">02</option>
-															<option value="" selected disabled hidden>Select Section</option>
+															<option value="69">69</option>
+															<option value="420">420</option>
 														</select>
+														<div class="invalid-feedback ml-4">Please select section.</div>
 													</div>
 
 							          <div class="input-group-btn">
@@ -79,7 +95,6 @@
 											</a>
 										</div>
 							        </form>
-
   </p>
 </div>
 
@@ -91,46 +106,55 @@
 					          <div class="control-group input-group justify-content-center" style="margin-top:10px">
 												<div class="form-group">
 													<label> Term </label>
-													<select class="form-control">
+													<select class="form-control custom-select" title="Please Select" id="select" name="select" required>
+														<option value="">Select Term</option>
 														<option value="Spring 2019">Spring 2019</option>
 														<option value="Summer 2019">Summer 2019</option>
 														<option value="Summer 2019">Spring 2019</option>
 													</select>
+													<div class="invalid-feedback ml-4">Please select current term.</div>
 												</div>
 
 												<div class="form-group">
 													<label> Department </label>
-													<select class="form-control">
+													<select class="form-control custom-select" required>
+														<option value="">Select Department</option>
 														<option value="CHEM">CHEM</option>
 														<option value="EECS">EECS</option>
 														<option value="GEN_ENG">GEN_ENG</option>
-														<option value="GNDR_ST">GNDR_ST</option>
+														<option value="EARTH">EARTH</option>
 														<option value="MATH">MATH</option>
-														<option value="NEUROSCI">NEUROSCI</option>
 														<option value="PSYCH">PSYCH</option>
-														<option value="" selected disabled hidden>Select Department</option>
 													</select>
+													<div class="invalid-feedback ml-5">Please select course department.</div>
 												</div>
 
 												<div class="form-group">
 													<label> Course </label>
-													<select class="form-control">
+													<select class="form-control custom-select" required>
+														<option value="">Select Course</option>
 														<option value="101">101-0</option>
-														<option value="101">210-0</option>
-														<option value="101">212-0</option>
-														<option value="101">321-0</option>
-														<option value="101">330-0</option>
-														<option value="" selected disabled hidden>Select Course</option>
+														<option value="101">102-0</option>
+														<option value="101">110-0</option>
+														<option value="101">111-0</option>
+														<option value="101">201-0</option>
+														<option value="101">203-0</option>
+														<option value="101">211-0</option>
+														<option value="101">234-0</option>
 													</select>
+													<div class="invalid-feedback ml-4">Please select course.</div>
 												</div>
 
 												<div class="form-group">
 													<label> Section </label>
-													<select class="form-control">
+													<select class="form-control custom-select" required>
+														<option value="">Select Section</option>
 														<option value="01">01</option>
 														<option value="02">02</option>
-														<option value="" selected disabled hidden>Select Section</option>
+														<option value="69">69</option>
+														<option value="420">420</option>
 													</select>
+													<div class="invalid-feedback ml-4">Please select section.</div>
 												</div>
 
 												<div class="input-group-btn">
@@ -159,23 +183,26 @@
     });
 
 
-	(function() {
-  'use strict';
-  window.addEventListener('load', function() {
-    // Get the forms we want to add validation styles to
-    var forms = document.getElementsByClassName('needs-validation');
-    // Loop over them and prevent submission
-    var validation = Array.prototype.filter.call(forms, function(form) {
-      form.addEventListener('submit', function(event) {
-        if (form.checkValidity() === false) {
-          event.preventDefault();
-          event.stopPropagation();
-        }
-        form.classList.add('was-validated');
-      }, false);
-    });
-  }, false);
-})();
+
+		// Example starter JavaScript for disabling form submissions if there are invalid fields
+		(function() {
+		  'use strict';
+		  window.addEventListener('load', function() {
+		    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+		    var forms = document.getElementsByClassName('needs-validation');
+		    // Loop over them and prevent submission
+		    var validation = Array.prototype.filter.call(forms, function(form) {
+		      form.addEventListener('submit', function(event) {
+		        if (form.checkValidity() === false) {
+		          event.preventDefault();
+		          event.stopPropagation();
+		        }
+		        form.classList.add('was-validated');
+		      }, false);
+		    });
+		  }, false);
+		})();
+
 
 </script>
 
