@@ -24,18 +24,26 @@
                       <label>Email address</label>
                       <div class="form-group" align="center">
                         <input style="width:50%" type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter Email" required>
+												<div class="invalid-feedback">Email required.</div>
+
                       </div>
                       <label for="username1">Username</label>
                       <div class="form-group" align="center">
-                        <input style="width:50%" type="username1" class="form-control" id="exampleInputUsername1" aria-describedby="emailHelp" placeholder="Enter Username">
+                        <input style="width:50%" type="username1" class="form-control" id="exampleInputUsername1"  placeholder="Enter Username" required>
+												<div class="invalid-feedback">Username required.</div>
+
                       </div>
                       <label for="exampleInputPassword1">Password</label>
                       <div class="form-group" align="center">
                         <input style="width:50%" type="password" class="form-control" id="exampleInputPassword1" placeholder="Enter Password" required>
+												<div class="invalid-feedback">Password required.</div>
+
                       </div>
                       <label for="exampleInputPassword2">Repeat Password</label>
                       <div class="form-group" align="center">
                         <input style="width:50%" type="password" class="form-control" id="exampleInputPassword2" placeholder="Re-Enter Password" required>
+												<div class="invalid-feedback">Password required.</div>
+
                       </div>
 
                         <a href="classesPage.html">
@@ -58,19 +66,8 @@
           </div>
   </p>
 </div>
+
           <script type="text/javascript">
-
-              $(document).ready(function() {
-                  $(".add-more").click(function(){
-                      var html = $(".copy").html();
-                      $(".after-add-more").after(html);
-                  });
-
-                  $("body").on("click",".remove",function(){
-                      $(this).parents(".control-group").remove();
-                  });
-              });
-
 
           	(function() {
             'use strict';
@@ -89,13 +86,11 @@
               });
             }, false);
           })();
-
           function clear_cookies() {
             //console.log("Cookies before: " + document.cookie);
             document.cookie.split(";").forEach(function(c) { document.cookie = c.replace(/^ +/, "").replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/"); });
               //console.log("Cookies after: " + document.cookie);
           }
-
           function getUN() {
             clear_cookies();
             var un = document.getElementById('exampleInputUsername1').value;
@@ -104,7 +99,6 @@
             //console.log("Cookie Text: " + cookie_text);
             document.cookie = cookie_text;
           }
-
           </script>
 </body>
 </html>
