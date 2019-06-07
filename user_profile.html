@@ -36,7 +36,7 @@
                             <button class="btn active" role="tab" aria-selected="true" aria-controls="classes-tab" id="classes">
                                 My Classes
                             </button>
-                            
+
                             -->
 
                             <a class="btn ml-3" href="main.html" role="button">Posts</a>
@@ -57,109 +57,133 @@
 
                         <div tabindex="0" role="tabpanel" id="classes-tab" aria-labelledby="classes">
                             <br>
-                            <form action="user_profile.html" class="needs-validation" novalidate>
-                                <div class="input-group control-group after-add-more justify-content-center">
-                                    <div class="form-group">
-                                        <label> Term </label>
-                                        <select class="form-control">
-                                            <option value="Spring 2019">Spring 2019</option>
-                                            <option value="Summer 2019">Summer 2019</option>
-                                            <option value="Summer 2019">Spring 2019</option>
-                                        </select>
-                                    </div>
+                            <form action="main.html" class="needs-validation" novalidate>
+                           <div class="input-group control-group after-add-more justify-content-center">
+                               <div class="form-group">
+                                 <label> Term </label>
+                                 <select class="form-control custom-select" title="Please Select" required>
+                                   <option value="">Select Term</option>
+                                   <option value="Spring 2019">Spring 2019</option>
+                                   <option value="Summer 2019">Summer 2019</option>
+                                   <option value="Summer 2019">Spring 2019</option>
+                                 </select>
+                                 <div class="invalid-feedback ml-4">Please select current term.</div>
+                               </div>
 
-                                    <div class="form-group">
-                                        <label> Department </label>
-                                        <select class="form-control">
-                                            <option value="CHEM">CHEM</option>
-                                            <option value="EECS">EECS</option>
-                                            <option value="GEN_ENG">GEN_ENG</option>
-                                            <option value="GNDR_ST">GNDR_ST</option>
-                                            <option value="MATH">MATH</option>
-                                            <option value="NEUROSCI">NEUROSCI</option>
-                                            <option value="PSYCH">PSYCH</option>
-                                            <option value="" selected disabled hidden>Select Department</option>
-                                        </select>
-                                    </div>
+                               <div class="form-group">
+                                 <label> Department </label>
+                                 <select class="custom-select form-control" required>
+                                   <option value="">Select Department</option>
+                                   <option value="CHEM">CHEM</option>
+                                   <option value="EECS">EECS</option>
+                                   <option value="GEN_ENG">GEN_ENG</option>
+                                   <option value="EARTH">EARTH</option>
+                                   <option value="MATH">MATH</option>
+                                   <option value="PSYCH">PSYCH</option>
+                                 </select>
+                                 <div class="invalid-feedback ml-5">Please select course department.</div>
+                               </div>
 
-                                    <div class="form-group">
-                                        <label> Course </label>
-                                        <select class="form-control">
-                                            <option value="101">101-0</option>
-                                            <option value="101">210-0</option>
-                                            <option value="101">212-0</option>
-                                            <option value="101">321-0</option>
-                                            <option value="101">330-0</option>
-                                            <option value="" selected disabled hidden>Select Course</option>
-                                        </select>
-                                    </div>
+                               <div class="form-group">
+                                 <label> Course </label>
+                                 <select class="custom-select form-control" required>
+                                   <option value="">Select Course</option>
+                                   <option value="101">101-0</option>
+                                   <option value="101">102-0</option>
+                                   <option value="101">110-0</option>
+                                   <option value="101">111-0</option>
+                                   <option value="101">201-0</option>
+                                   <option value="101">203-0</option>
+                                   <option value="101">211-0</option>
+                                   <option value="101">234-0</option>
+                                 </select>
+                                 <div class="invalid-feedback ml-4">Please select course.</div>
+                               </div>
 
-                                    <div class="form-group">
-                                        <label> Section </label>
-                                        <select id="section" class="form-control">
-                                            <option value="01">01</option>
-                                            <option value="02">02</option>
-                                            <option value="" selected disabled hidden>Select Section</option>
-                                        </select>
-                                    </div>
+                               <div class="form-group">
+                                 <label> Section </label>
+                                 <select id="section" class="custom-select form-control" required>
+                                   <option value="">Select Section</option>
+                                   <option value="01">01</option>
+                                   <option value="02">02</option>
+                                   <option value="69">69</option>
+                                   <option value="420">420</option>
+                                 </select>
+                                 <div class="invalid-feedback ml-4">Please select section.</div>
+                               </div>
 
-                                    <div class="input-group-btn">
-                                        <button class="btn d-flex justify-content-center align-content-between add-more mt-1 ml-2" type="button"><i class="material-icons">add</i></button>
-                                    </div>
-                                </div>
+                             <div class="input-group-btn">
+                               <button class="btn d-flex justify-content-center align-content-between add-more mt-1 ml-2" type="button"><i class="material-icons">add</i></button>
+                             </div>
+                           </div>
 
-                                <div class="control-group text-center">
-                                    <a href="user_profile.html">
-                                        <button class="btn" type="submit">Submit</button>
-                                    </a>
-                                </div>
-                            </form>
+                           <div class="control-group text-center">
+                           <a href="user_profile.html">
+                             <button class="btn" type="submit">Submit</button>
+                           </a>
+                         </div>
+                           </form>
+        </p>
+      </div>
 
-                            <div class="copy d-none">
-                                <div class="control-group input-group justify-content-center" style="margin-top:10px">
-                                    <div class="form-group">
-                                        <label> Term </label>
-                                        <select class="form-control">
-                                            <option value="Spring 2019">Spring 2019</option>
-                                            <option value="Summer 2019">Summer 2019</option>
-                                            <option value="Summer 2019">Spring 2019</option>
-                                        </select>
-                                    </div>
 
-                                    <div class="form-group">
-                                        <label> Department </label>
-                                        <select class="form-control">
-                                            <option value="CHEM">CHEM</option>
-                                            <option value="EECS">EECS</option>
-                                            <option value="GEN_ENG">GEN_ENG</option>
-                                            <option value="GNDR_ST">GNDR_ST</option>
-                                            <option value="MATH">MATH</option>
-                                            <option value="NEUROSCI">NEUROSCI</option>
-                                            <option value="PSYCH">PSYCH</option>
-                                            <option value="" selected disabled hidden>Select Department</option>
-                                        </select>
-                                    </div>
 
-                                    <div class="form-group">
-                                        <label> Course </label>
-                                        <select class="form-control">
-                                            <option value="101">101-0</option>
-                                            <option value="101">210-0</option>
-                                            <option value="101">212-0</option>
-                                            <option value="101">321-0</option>
-                                            <option value="101">330-0</option>
-                                            <option value="" selected disabled hidden>Select Course</option>
-                                        </select>
-                                    </div>
 
-                                    <div class="form-group">
-                                        <label> Section </label>
-                                        <select class="form-control">
-                                            <option value="01">01</option>
-                                            <option value="02">02</option>
-                                            <option value="" selected disabled hidden>Select Section</option>
-                                        </select>
-                                    </div>
+
+                       <div class="copy d-none">
+                         <div class="control-group input-group justify-content-center" style="margin-top:10px">
+                             <div class="form-group">
+                               <label> Term </label>
+                               <select class="form-control custom-select" title="Please Select" id="select" name="select" required>
+                                 <option value="">Select Term</option>
+                                 <option value="Spring 2019">Spring 2019</option>
+                                 <option value="Summer 2019">Summer 2019</option>
+                                 <option value="Summer 2019">Spring 2019</option>
+                               </select>
+                               <div class="invalid-feedback ml-4">Please select current term.</div>
+                             </div>
+
+                             <div class="form-group">
+                               <label> Department </label>
+                               <select class="form-control custom-select" required>
+                                 <option value="">Select Department</option>
+                                 <option value="CHEM">CHEM</option>
+                                 <option value="EECS">EECS</option>
+                                 <option value="GEN_ENG">GEN_ENG</option>
+                                 <option value="EARTH">EARTH</option>
+                                 <option value="MATH">MATH</option>
+                                 <option value="PSYCH">PSYCH</option>
+                               </select>
+                               <div class="invalid-feedback ml-5">Please select course department.</div>
+                             </div>
+
+                             <div class="form-group">
+                               <label> Course </label>
+                               <select class="form-control custom-select" required>
+                                 <option value="">Select Course</option>
+                                 <option value="101">101-0</option>
+                                 <option value="101">102-0</option>
+                                 <option value="101">110-0</option>
+                                 <option value="101">111-0</option>
+                                 <option value="101">201-0</option>
+                                 <option value="101">203-0</option>
+                                 <option value="101">211-0</option>
+                                 <option value="101">234-0</option>
+                               </select>
+                               <div class="invalid-feedback ml-4">Please select course.</div>
+                             </div>
+
+                             <div class="form-group">
+                               <label> Section </label>
+                               <select class="form-control custom-select" required>
+                                 <option value="">Select Section</option>
+                                 <option value="01">01</option>
+                                 <option value="02">02</option>
+                                 <option value="69">69</option>
+                                 <option value="420">420</option>
+                               </select>
+                               <div class="invalid-feedback ml-4">Please select section.</div>
+                             </div>
 
                                     <div class="input-group-btn">
                                         <button class="remove btn d-flex justify-content-center align-content-between ml-2 mt-1" type="button"><i class="material-icons">clear</i></button>
@@ -210,7 +234,6 @@
                     <script type="text/javascript" src="sb.json"></script>
                     <script>
                         var db = JSON.parse(sb);
-
                         function getCookie(cname) {
                           var name = cname + "=";
                           var ca = document.cookie.split(';');
@@ -226,17 +249,13 @@
                           }
                           return "";
                         }
-
                         function setUpProfile() {
                             db.cur_user = getCookie('username');
                             db.cur_board = db.users[db.cur_user].classes[0];
-
                             var un_div = document.getElementById('un');
                             un_div.innerHTML = db.cur_user;
-
                             // Sets up checklists
                             var psl_list = db.users[db.cur_user].psl;
-
                             var i = 0;
                             psl_list.forEach(function(elem) {
                                 var elem_name = "cb" + i;
@@ -247,20 +266,16 @@
                                 i++;
                             });
                         }
-
                         (function() {
                             var tablist = document.querySelectorAll('[role="tablist"]')[0];
                             var tabs;
                             var panels;
                             var delay = determineDelay();
-
                             generateArrays();
-
                             function generateArrays() {
                                 tabs = document.querySelectorAll('[role="tab"]');
                                 panels = document.querySelectorAll('[role="tabpanel"]');
                             };
-
                             // For easy reference
                             var keys = {
                                 end: 35,
@@ -271,7 +286,6 @@
                                 down: 40,
                                 delete: 46
                             };
-
                             // Add or substract depending on key pressed
                             var direction = {
                                 37: -1,
@@ -279,31 +293,25 @@
                                 39: 1,
                                 40: 1
                             };
-
                             // Bind listeners
                             for (i = 0; i < tabs.length; ++i) {
                                 addListeners(i);
                             };
-
                             function addListeners(index) {
                                 tabs[index].addEventListener('click', clickEventListener);
                                 tabs[index].addEventListener('keydown', keydownEventListener);
                                 tabs[index].addEventListener('keyup', keyupEventListener);
-
                                 // Build an array with all tabs (<button>s) in it
                                 tabs[index].index = index;
                             };
-
                             // When a tab is clicked, activateTab is fired to activate it
                             function clickEventListener(event) {
                                 var tab = event.target;
                                 activateTab(tab, false);
                             };
-
                             // Handle keydown on tabs
                             function keydownEventListener(event) {
                                 var key = event.keyCode;
-
                                 switch (key) {
                                     case keys.end:
                                         event.preventDefault();
@@ -315,7 +323,6 @@
                                         // Activate first tab
                                         activateTab(tabs[0]);
                                         break;
-
                                         // Up and down are in keydown
                                         // because we need to prevent page scroll >:)
                                     case keys.up:
@@ -324,11 +331,9 @@
                                         break;
                                 };
                             };
-
                             // Handle keyup on tabs
                             function keyupEventListener(event) {
                                 var key = event.keyCode;
-
                                 switch (key) {
                                     case keys.left:
                                     case keys.right:
@@ -339,7 +344,6 @@
                                         break;
                                 };
                             };
-
                             // When a tablist aria-orientation is set to vertical,
                             // only up and down arrow should function.
                             // In all other cases only left and right arrow function.
@@ -347,7 +351,6 @@
                                 var key = event.keyCode;
                                 var vertical = tablist.getAttribute('aria-orientation') == 'vertical';
                                 var proceed = false;
-
                                 if (vertical) {
                                     if (key === keys.up || key === keys.down) {
                                         event.preventDefault();
@@ -358,21 +361,17 @@
                                         proceed = true;
                                     };
                                 };
-
                                 if (proceed) {
                                     switchTabOnArrowPress(event);
                                 };
                             };
-
                             // Either focus the next, previous, first, or last tab
                             // depening on key pressed
                             function switchTabOnArrowPress(event) {
                                 var pressed = event.keyCode;
-
                                 for (x = 0; x < tabs.length; x++) {
                                     tabs[x].addEventListener('focus', focusEventHandler);
                                 };
-
                                 if (direction[pressed]) {
                                     var target = event.target;
                                     if (target.index !== undefined) {
@@ -386,31 +385,24 @@
                                     };
                                 };
                             };
-
                             // Activates any given tab panel
                             function activateTab(tab, setFocus) {
                                 setFocus = setFocus || true;
                                 // Deactivate all other tabs
                                 deactivateTabs();
-
                                 // Remove tabindex attribute
                                 tab.removeAttribute('tabindex');
-
                                 // Set the tab as selected
                                 tab.setAttribute('aria-selected', 'true');
-
                                 // Get the value of aria-controls (which is an ID)
                                 var controls = tab.getAttribute('aria-controls');
-
                                 // Remove hidden attribute from tab panel to make it visible
                                 document.getElementById(controls).removeAttribute('hidden');
-
                                 // Set focus when required
                                 if (setFocus) {
                                     tab.focus();
                                 };
                             };
-
                             // Deactivate all tabs and tab panels
                             function deactivateTabs() {
                                 for (t = 0; t < tabs.length; t++) {
@@ -418,33 +410,26 @@
                                     tabs[t].setAttribute('aria-selected', 'false');
                                     tabs[t].removeEventListener('focus', focusEventHandler);
                                 };
-
                                 for (p = 0; p < panels.length; p++) {
                                     panels[p].setAttribute('hidden', 'hidden');
                                 };
                             };
-
                             // Make a guess
                             function focusFirstTab() {
                                 tabs[0].focus();
                             };
-
                             // Make a guess
                             function focusLastTab() {
                                 tabs[tabs.length - 1].focus();
                             };
-
                             // Detect if a tab is deletable
                             function determineDeletable(event) {
                                 target = event.target;
-
                                 if (target.getAttribute('data-deletable') !== null) {
                                     // Delete target tab
                                     deleteTab(event, target);
-
                                     // Update arrays related to tabs widget
                                     generateArrays();
-
                                     // Activate the closest tab to the one that was just deleted
                                     if (target.index - 1 < 0) {
                                         activateTab(tabs[0]);
@@ -453,22 +438,18 @@
                                     };
                                 };
                             };
-
                             // Deletes a tab and its panel
                             function deleteTab(event) {
                                 var target = event.target;
                                 var panel = document.getElementById(target.getAttribute('aria-controls'));
-
                                 target.parentElement.removeChild(target);
                                 panel.parentElement.removeChild(panel);
                             };
-
                             // Determine whether there should be a delay
                             // when user navigates with the arrow keys
                             function determineDelay() {
                                 var hasDelay = tablist.hasAttribute('data-delay');
                                 var delay = 0;
-
                                 if (hasDelay) {
                                     var delayValue = tablist.getAttribute('data-delay');
                                     if (delayValue) {
@@ -478,21 +459,16 @@
                                         delay = 300;
                                     };
                                 };
-
                                 return delay;
                             };
-
                             //
                             function focusEventHandler(event) {
                                 var target = event.target;
-
                                 setTimeout(checkTabFocus, delay, target);
                             };
-
                             // Only activate tab on focus if it still has focus after the delay
                             function checkTabFocus(target) {
                                 focused = document.activeElement;
-
                                 if (target === focused) {
                                     activateTab(target, false);
                                 };
@@ -506,12 +482,10 @@
                                 var html = $(".copy").html();
                                 $(".after-add-more").after(html);
                             });
-
                             $("body").on("click", ".remove", function() {
                                 $(this).parents(".control-group").remove();
                             });
                         });
-
                         (function() {
                             'use strict';
                             window.addEventListener('load', function() {
@@ -538,11 +512,9 @@
                                 readURL(this);
                             });
                         });
-
                         function readURL(input) {
                             if (input.files && input.files[0]) {
                                 var reader = new FileReader();
-
                                 reader.onload = function(e) {
                                     $('#wizardPicturePreview').attr('src', e.target.result).fadeIn('slow');
                                 }
