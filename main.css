@@ -161,6 +161,12 @@ p {
 	bottom: 10px;
 }
 
+.makePost {
+	margin-top: 10px;
+	position: relative;
+	text-align: center;
+}
+
 
 .picture-container{
     position: relative;

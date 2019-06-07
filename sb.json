@@ -31,7 +31,7 @@ sb = `{
 			"post_2019_5_10_22_0_0_purple5": {
 				"user":"purple5",
 				"time":"May 10 10:00 PM",
-				"irt": null,
+				"irt": "base",
 				"level": 0,
 				"newPost": false,
 				"text":"Hi, I need a partner",
@@ -39,7 +39,7 @@ sb = `{
 					"post_2019_5_15_10_30_0_therock": {
 						"user":"therock",
 						"time":"May 15 10:30 AM",
-						"irt": "1",
+						"irt": "post_2019_5_10_22_0_0_purple5",
 						"level": 1,
 						"newPost": false,
 						"text":"Do you want to be partners?",
@@ -48,7 +48,7 @@ sb = `{
 					"post_2019_5_11_14_1_0_willie8":{
 						"user":"willie8",
 						"time":"May 11 2:01 PM",
-						"irt": "1",
+						"irt": "post_2019_5_10_22_0_0_purple5",
 						"level": 1,
 						"newPost": false,
 						"text":"Hi, me too",
@@ -56,7 +56,7 @@ sb = `{
 							"post_2019_5_12_13_6_0_evan1":{
 								"user":"evan1",
 								"time":"May 12 1:06 PM",
-								"irt": "2",
+								"irt": "post_2019_5_11_14_1_0_willie8",
 								"level": 2,
 								"newPost": false,
 								"text":"Hey, me three",
@@ -69,7 +69,7 @@ sb = `{
 			"post_2019_5_10_13_6_0_morty":{
 				"user":"morty",
 				"time":"May 10 1:06 PM",
-				"irt": 0,
+				"irt": "base",
 				"level": 0,
 				"newPost": false,
 				"text":"Your tuition is due",
@@ -80,7 +80,7 @@ sb = `{
 			"post_2019_5_10_13_6_0_morty":{
 				"user":"morty",
 				"time":"May 10 1:06 PM",
-				"irt": 0,
+				"irt": "base",
 				"level": 0,
 				"newPost": false,
 				"text":"You cant hide from me",
@@ -91,7 +91,7 @@ sb = `{
 			"post_2019_5_10_13_6_0_morty":{
 				"user":"morty",
 				"time":"May 10 1:06 PM",
-				"irt": 0,
+				"irt": "base",
 				"level": 0,
 				"newPost": false,
 				"text":"There is no escape",
@@ -102,7 +102,7 @@ sb = `{
 			"post_2019_5_10_13_6_0_morty":{
 				"user":"morty",
 				"time":"May 10 1:06 PM",
-				"irt": 0,
+				"irt": "base",
 				"level": 0,
 				"newPost": false,
 				"text":"Last warning",
@@ -113,7 +113,7 @@ sb = `{
 			"post_2019_5_10_13_6_0_morty":{
 				"user":"morty",
 				"time":"May 10 1:06 PM",
-				"irt": 0,
+				"irt": "base",
 				"level": 0,
 				"newPost": false,
 				"text":"Thought you could escape from me by switching to a second profile, huh? You were wrong.",
@@ -124,7 +124,7 @@ sb = `{
 			"post_2019_5_10_13_6_0_morty":{
 				"user":"morty",
 				"time":"May 10 1:06 PM",
-				"irt": 0,
+				"irt": "base",
 				"level": 0,
 				"newPost": false,
 				"text":"Every breath you take, every step you take, I'll be watching you",
@@ -135,7 +135,7 @@ sb = `{
 			"post_2019_5_10_13_6_0_morty":{
 				"user":"morty",
 				"time":"May 10 1:06 PM",
-				"irt": 0,
+				"irt": "base",
 				"level": 0,
 				"newPost": false,
 				"text":"I'm in your head",
@@ -146,7 +146,7 @@ sb = `{
 			"post_2019_5_10_13_6_0_morty":{
 				"user":"morty",
 				"time":"May 10 1:06 PM",
-				"irt": 0,
+				"irt": "base",
 				"level": 0,
 				"newPost": false,
 				"text":"I am inevitable",

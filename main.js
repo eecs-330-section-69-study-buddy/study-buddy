@@ -170,6 +170,23 @@ function modifyPost(post_list, post_num, post_lev) {
 	//console.log("Entered modifyPost: " + post_num);
 	//console.log(post_list);
 
+	if(post_num == 'base') {
+		var d = new Date();
+
+		var post_id = "post_" + d.getUTCFullYear() + "_" + (d.getUTCMonth() + 1).toString() + "_" + d.getUTCDate() + "_" + d.getUTCHours() + "_" + d.getUTCMinutes() + "_" + d.getUTCSeconds() + "_" + (db.cur_user).toString();
+		var dateOptions = {month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric'};
+		var post_time = d.toLocaleDateString('en-US', dateOptions);
+		var post_level = "0";
+
+		//console.log(post_id);
+
+		post_list[post_id] = new Post(db.cur_user, post_time, post_num, post_level, true, null, {});
+
+		//console.log("Finished adding new post")
+		//console.log(post_list);
+		return post_list;
+	}
+
 	var post_list = sortPostList(post_list, post_lev);
 
 	var key_list = Object.keys(post_list);
