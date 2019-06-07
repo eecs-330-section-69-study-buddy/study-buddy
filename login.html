@@ -17,18 +17,18 @@
   <p class="font-weight-light">Sign in to access your account.</p>
   <p class="lead">
 
-		<div class="container shadow-sm bg-light rounded p-5" style="width:35%">
+		<div class="container shadow-sm bg-light rounded p-5">
 			<div class="panel panel-default">
 				<div class="panel-body">
 
-					<form action="main.html" class="needs-validation" novalidate>
-						<label for="username1">Username</label>
-					<div class="form-group" align="center">
-			      <input type="email" class="form-control" id="exampleInputEmail1" style="width:50%" aria-describedby="emailHelp" placeholder="Enter Username">
+					<form action="main.html">
+						<label for="validationDefault01">Username</label>
+					<div class="form-group">
+			      <input type="text" class="form-control" id="validationDefault01" placeholder="Enter Username" required>
 			    </div>
 					<label for="exampleInputPassword1">Password</label>
-			    <div class="form-group" align="center">
-			      <input type="password" class="form-control" style="width:50%" id="exampleInputPassword1" placeholder="Enter Password">
+			    <div class="form-group">
+			      <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Enter Password" required>
 			    </div>
   <p class="reg">Don't have an account? Register <a href="register3.html">here</a>.</p>
 					<a href="main.html">
@@ -44,42 +44,6 @@
 								</div>
 
 							</div>
-
-
-
-							<script type="text/javascript">
-
-							    $(document).ready(function() {
-							        $(".add-more").click(function(){
-							            var html = $(".copy").html();
-							            $(".after-add-more").after(html);
-							        });
-
-							        $("body").on("click",".remove",function(){
-							            $(this).parents(".control-group").remove();
-							        });
-							    });
-
-
-								(function() {
-							  'use strict';
-							  window.addEventListener('load', function() {
-							    // Get the forms we want to add validation styles to
-							    var forms = document.getElementsByClassName('needs-validation');
-							    // Loop over them and prevent submission
-							    var validation = Array.prototype.filter.call(forms, function(form) {
-							      form.addEventListener('submit', function(event) {
-							        if (form.checkValidity() === false) {
-							          event.preventDefault();
-							          event.stopPropagation();
-							        }
-							        form.classList.add('was-validated');
-							      }, false);
-							    });
-							  }, false);
-							})();
-
-							</script>
 
 </body>
 </html>
