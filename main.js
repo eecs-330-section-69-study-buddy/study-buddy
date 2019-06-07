@@ -100,7 +100,7 @@ function dPhelper(post_list, new_board, post_lev) {
 			//console.log("DPH: Rendering new " + key);
 			var contents = `<p class='post-un'>${db.cur_user}</p>
 							<form id='reply-form'>
-								<input id='reply-text' type="text">
+								<input id='reply-text' type="text" style="width:100%">
 								<div class='post-nav'>
 								<p class='post-date'>${post_list[key].time}</p>
 									<button type="button" id='post-submit' onclick='submitPost("${key}")'>Submit</button>
